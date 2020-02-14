@@ -45,13 +45,15 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		data = GetComponent<Data>();
         
         speaker = data.speakerList[0];
+
+		Resources.LoadAsync("");
     }
 
     // Update is called once per frame
     void Update()
     {
 		if (playerInControl == true){
-			if (Input.GetKeyDown(KeyCode.Space) /*|| Input.GetKeyDown(KeyCode.Mouse0)*/){
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)){
 				if (playingDialogue == false){
 					AdvanceText();
 				} else { //Same functionality as left control/right click while dialogue is playing.

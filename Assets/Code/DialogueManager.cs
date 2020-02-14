@@ -80,8 +80,8 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	}
 
 	public void LoadScript (string path){ //loads text script into a queue
-		try {
-			StreamReader sr = new StreamReader("Assets/Script/"+path+".txt");
+		//try {
+			StreamReader sr = new StreamReader("StoryScripts\\" + path + ".txt");
 			string line;
 			while ((line = sr.ReadLine()) != null){
 				line = line.Replace("\\n", "\n");
@@ -89,9 +89,9 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 			}
 			lineIndex = 0;
 			Debug.Log("List Loaded. Count: "+sceneScript.Count+", Capacity: "+sceneScript.Capacity);
-		} catch (FileNotFoundException e){
-			Debug.Log("<color=red> File failed to read: </color>" + e.Message);
-		}
+		//} catch (FileNotFoundException e){
+			//Debug.Log("<color=red> File failed to read: </color>" + e.Message);
+		//}
 	}
 
 	#region TextManagement
@@ -228,7 +228,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		if (voiceSource.isPlaying == true) {
 			voiceSource.Stop();
 		}
-		if (finalText[textIndex] != ' ' || finalText[textIndex] != '[' || finalText[textIndex] != '<') {
+		if (finalText[textIndex] != ' ' || finalText[textIndex] != '[' || finalText[textIndex] != '<' || finalText[textIndex] != ']' || finalText[textIndex] != '>' || finalText[textIndex] != '=') {
 				voiceSource.Play();
 			}
 	}

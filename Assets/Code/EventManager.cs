@@ -119,7 +119,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		}
 	}
 	public void RemoveChar(int index) {
-		if ((index == -1) || index >= CharList.Count) {
+		if ((index <= -1) || index >= CharList.Count) {
 			Destroy(CharList[CharList.Count - 1]);
 			CharList.RemoveAt(CharList.Count - 1);
 		} else {
@@ -466,7 +466,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 	}
 	#endregion
 
-	#region Music and Sound
+	#region Audio
 	public void Voice(string voice) { //[Voice i=0]
 		voiceSource.clip = Resources.Load<AudioClip>("Sound/Voices/" + voice);
 	}
@@ -518,6 +518,13 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		dialogueManager.LoadScript(scriptName);
 		SceneManager.LoadScene(sceneName);
 	}
+	#endregion
+
+	#region Special
+		public void ForceQuit() {
+			Debug.Log("<color=#FF0000>Slamming the panic button!!!</color>");
+			Application.Quit();
+		}
 	#endregion
 
 	public IEnumerator Delay(float time) {

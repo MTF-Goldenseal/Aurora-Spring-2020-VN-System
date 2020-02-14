@@ -1,0 +1,2 @@
+[SetNameState i=0][BoxState i=1]ayo
+[BoxState i=2]bottom text

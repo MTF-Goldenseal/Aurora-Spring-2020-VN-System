@@ -1,0 +1,14 @@
+[Voice s=GenericVoice2][SpawnChar s=Arti s=artiWave2 v3=-11,-0.5,0][CharMove i=0 v3=-6,-0.5,0][BoxState i=0]Can I get everyone's attention, please? Just a few minutes of your time : )
+[CharAnim i=0 i=1][BoxState i=1]Hey everyone, my name's Arti, and I'm a character from a video game created\nwith Aurora Game Development Club!
+[CharAnimEnd i=0][BoxState i=1]What we do is [CharExpress i=0 s=artiPoint]<color=red>we throw you into teams of at least three to five people to just\n<i>make</i> a game throughout the semester.</color> Doesn't matter what your skill level\nis or what your major is...
+[CharExpress i=0 s=artiFlex][BoxState i=1]As long as you've got drive and time, you can make it happen with us!\nEven if you have no experience, there's no better way to learn than to jump\nright in.
+[CharExpress i=0 s=artiNeutral][BoxState i=1]We're always looking for <color=#00CCFF>programmers, artists, musicians, 3D modellers,\nanimators</color>...any major role you can think of in game development.
+[CharExpress i=0 s=artiWave2][BoxState i=1]Here's some of the games we've made from last semester with our\nGSU Chapter!
+[CharExpress i=0 s=artiHug][BoxState i=1]There's so much potential here at Aurora, but making a game isn't easy. [CharExpress i=0 s=artiCrossed]<color=#00CCFF>Game\ndevelopment takes a lot of time investment and effort, and you'll be testing\nyour ability to learn and work with a team.</color>
+[CharExpress i=0 s=artiFlex][BoxState i=1]If you have what it takes, you'll learn so much over the semester and you'll\nhave a fun project to add to your portfolio!
+[CharExpress i=0 s=artiNeutral][BoxState i=1]If you <i>do</i> happen to have experience, <color=red>we also provide networking\nopportunities for people looking to step into the game development industry.</color>
+[BoxState i=1]We visit events like Siegecon, Dreamhack, Momocon, and others as a\ngroup, where you can hang out with industry pros and show off what you've\nmade. We run a scholarship to help send a few people to GDC as well.
+[CharExpress i=0 s=artiHug][BoxState i=1]If you're interested in joining, <color=red>we meet every Friday from 5PM to around 7PM\nat Room 211 of the Creative Media Industries Institute here at GSU.</color>
+[CharExpress i=0 s=artiNeutral][BoxState i=1]If you don't know where that is, it's the large building with glass windows to\nthe right of 25 Park Place.
+[BoxState i=1]Show your GSU ID at the front, head straight down to the elevators, go up to\nthe second floor, make your way into the workspace and take a hard left.
+[CharAnim i=0 i=1][BoxState i=1]We hope to see you there![Delay f=2][FadeTo f=0.03 c=0,0,0,0]
