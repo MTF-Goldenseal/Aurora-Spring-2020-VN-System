@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 918467293626704965}
   - component: {fileID: 8557313396194385967}
   - component: {fileID: 1151087941476105428}
+  - component: {fileID: 2328772108491270360}
   m_Layer: 0
   m_Name: Chen
   m_TagString: Untagged
@@ -50,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: fc22a5dbd4df28c42a5f6b9f22acbe9f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,3 +113,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f2e0fa57eb8ea48bfb16f5c6d87285, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2328772108491270360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726316402351000099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffddc4dd897db374dad1be111d40d364, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenDistortions: 0.16667

@@ -81,8 +81,11 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
     public void PointerMove(Vector3 location) {
         dialogueBoxScript.PointerMove(location);
     }
-    public void PointerFlip(bool facingRight) {
-        dialogueBoxScript.PointerFlip(facingRight);
+	public void PointerSet(Vector3 location) {
+		dialogueBoxScript.PointerSet(location);
+	}
+    public void PointerFlip() {
+        dialogueBoxScript.PointerFlip();
     }
 
     public void BoxState(int state) {
@@ -98,6 +101,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
         dialogueManager.ChangeUnderlay(c);
     }
 
+	public void NextLine() {
+		gameManager.AdvanceText();
+	}
 	public void AutoNext(float time) {
 		dialogueManager.autoNextDelay = time;
 		if (dialogueManager.autoNext == false) {
@@ -128,6 +134,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		}
 	}
 	public void CharExpress(int index, string spriteName) {
+		if (CharList[index].GetComponent<Animator>().enabled == true) {
+			CharList[index].GetComponent<Animator>().enabled = false;
+		}
 		SpriteRenderer charSR = CharList[index].GetComponent<SpriteRenderer>();
 		charSR.sprite = Resources.Load<Sprite>("Art/Characters/Expressions/" + spriteName);
 	}
@@ -310,6 +319,13 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			charTransform.position = charShakeBackup;
 			yield return null;
 		}
+	}
+
+	public void CharDistortMag(int index, float str) {
+		CharList[index].GetComponent<CharScript>().CharDistortMag(str);
+	}
+	public void CharDistortRate(int index, float rt) {
+		CharList[index].GetComponent<CharScript>().CharDistortRate(rt);
 	}
 	#endregion
 

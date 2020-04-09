@@ -1,3 +1,153 @@
-[NameState i=27665][Voice s=GenericVoice2][SpawnChar s=Chen s=chenSmile v3=-11,0,9.3][CharMove i=0 v3=-4.7,0,9.3][PointerMove v3=-3.58,4.2,-1][BoxState i=1]Beginning CharFade test.
-[CharFadeTo i=0 c=1,0.5,0,1 f=3][BoxState i=2]Fading to orange.
-[CharColor i=0 c=1,0.5,0,1]Setting to orange.
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=1][Voice s=GenericVoice2][SpawnChar s=Thena s=Thena_Smile v3=-11,0.4,10][CharMove i=0 v3=5.42,0.4,10][PointerMove v3=5.1,3.7,-1]Here we are! No line on a weekday, too.
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][SpawnChar s=Emberly s=Emberly_Surprised v3=-11,0.4,11][CharMove i=1 v3=2.6,0.4,11][PointerMove v3=1.8,4.2,-1]Prim, I still can't believe you haven't heard of Matcha Mocha.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][SpawnChar s=Prim s=Prim_Neutral v3=-11,0.4,9][CharMove i=2 v3=-3.5,0.4,11][PointerMove v3=-2.4,4.2,-1]I moved here recently. Can't blame me for not knowing.
+[PointerFlip][UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_Furrowed][PointerMove v3=1.8,4.2,-1]Two years does <i>not</i> count as recent. This place is front and center on the\nnorth end of campus, and they're always doing community events and making\nthe local news.
+[BoxState i=2][CharExpress i=1 s=Emberly_Neutral]There's no one I know of who doesn't know about it. Hell, when I give\ndirections, I just mention however much time in what direction from here,\nand people just know.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharExpress i=2 s=Prim_Surprised][PointerMove v3=-2.4,4.2,-1]Oh.
+[BoxState i=2]<size=85%>that's why no one was giving me straight directions...</size>
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1]So this is a pretty popular café around campus.
+[BoxState i=2][CharExpress i=0 s=Thena_Neutral]They do bubble tea, coffee, baked stuff...
+[BoxState i=2][CharExpress i=0 s=Thena_Smile]But they're mostly known for their matcha mochi.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharExpress i=2 s=Prim_Neutral][PointerMove v3=-2.4,4.2,-1]What's matcha and what's mochi.
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]Oh, uh...matcha's basically green tea flavored stuff.
+[BoxState i=2][CharExpress i=0 s=Thena_Neutral]And mochi is like...I'm not really sure how to describe it.
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_Smile][PointerMove v3=1.8,4.2,-1]It's this special kind of rice dough, usually filled with red bean paste or some\nother sweet stuff.
+[BoxState i=2]The matcha mochi's filled with green tea ice cream. It's a bit expensive,\nbut you gotta try it at least once.
+[UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]I'm surprised you don't know what they are considering you're from Cali.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharExpress i=2 s=Prim_Neutral][PointerMove v3=-2.4,4.2,-1]I don't go to places like these too often. [Delay f=1.0]Usually, it's just to grab some\ncaffeine.
+[BoxState i=2][CharAnim i=2 i=4]But anyways...what else do they have?
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile]They do bubble tea, coffee, soft serve, pastries, snacks, standard café stuff.
+[BoxState i=2]If you go for bubble tea, you should ask to not have boba since theirs'\ntastes like plastic.
+[BoxState i=2][CharExpress i=0 s=Thena_Neutral]The coffee isn't anything special, the snacks are decent, the soft serve is\npretty good, but there's a better place for that about half an hour away.
+[BoxState i=2][CharExpress i=0 s=Thena_Confused]Their mooncakes are amazing, but only on Tuesdays and Thursdays for some\nreason???
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_Furrowed][PointerMove v3=1.8,4.2,-1]I'm like 90% certain it's because of someone who only works on those days.
+[BoxState i=2][CharAnim i=1 i=5]I once spent four hours here trying to figure out who while bullshitting\na paper, but I can only boil it down to a timeframe.
+[PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharAnim i=2 i=3][PointerMove v3=-2.4,4.2,-1][TalkSpeed f=0.2]. . .[TalkSpeed f=0.023]what
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile2]If it's your first time here, I would absolutely go for either the matcha\nmochi or the soft serve swirl. No question about it.
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_Neutral][PointerMove v3=1.8,4.2,-1]I don't know about that, the lychee milk tea is looking like the right choice\nfor today.
+[UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Neutral]Yeah, but if you've never been here, matcha's gotta be the first thing you\nget. It's the name of the place.
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_Furrowed][PointerMove v3=1.8,4.2,-1]Wh-...how does that make any sense
+[UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]I mean...when I go somewhere new, I usually go for what the place is\nknown for.
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharAnim i=1 i=1][PointerMove v3=0.45,4.2,-1]Thena.[Delay f=0.75]\nWe've wasted hundreds of dollars here already.[Delay f=1]\nWe know what's good and what isn't.
+[UnderColor c=0.89,0.21,0.38,1][UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2]Prim, wouldn't you trust a grizzled tea gremlin's opinion over whatever's\nfront and center on the menu?
+[PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharAnim i=2 i=4][PointerMove v3=-2.4,4.2,-1]Well...
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=4.6,3,-1][CharAnim i=0 i=2]Don't listen to her, Prim. She goes here so much that she knows when to get\nwhat based on who's working that day.
+[BoxState i=2]Can you really trust that kind of warped, convoluted standard?
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_SillySmile][PointerMove v3=0.45,4.2,-1]As if you're any different!
+[UnderColor c=0.89,0.21,0.38,1][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][CharExpress i=0 s=Thena_Silly][PointerMove v3=4.6,3,-1][CharExpress i=2 s=Prim_Stare]That just means you can't trust <i>either of us!</i> Just pick something at\nrandom...like the black sesame biscuit in the corner display!
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=2][CharExpress i=1 s=Emberly_WTF][PointerMove v3=0.45,4.2,-1]Oh my god Thena that shit's been sitting there for a week now-
+[PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][CharAnim i=2 i=2][PointerMove v3=-3.2,4.2,-1]It's aight, I think I know what I'm going for.
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised][CharExpress i=1 s=Emberly_Surprised]Oh?
+[NameState i=0][BoxState i=4][CharMove i=0 v3=-11,0.4,10][CharMove i=1 v3=-11,0.4,10][CharMove i=2 v3=-12,0.4,10] [Delay f=1.5][NameState i=69][BoxState i=1][PointerMove v3=9.7,4.2,-1][CharMove i=2 v3=3.5,0.4,11]Welcome to Matcha Mocha, what can I get you?
+[UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][PointerMove v3=1.45,4.2,-1][CharAnim i=2 i=2]I'll have a small, plain coffee.
+[NameState i=69][BoxState i=2][PointerMove v3=9.7,4.2,-1]Sure, that'll be $2.50.
+[UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][PointerMove v3=1.45,4.2,-1][CharMove i=2 v3=4,0.4,11]Cool, thanks.
+[BoxState i=4][CharMove i=2 v3=11,0.4,11] [Delay f=2][CharFlip i=0][CharFlip i=1][CharExpress i=0 s=Thena_Surprised][CharExpress i=1 s=Emberly_Surprised][CharMove i=0 v3=3,0.4,10][CharMove i=1 v3=0,0.4,11] [Delay f=2][CharExpress i=2 s=Prim_SmugCoffee][CharFlip i=2][CharTranslate i=2 v3=-12,0.4,9 f=0.2]
+[UnderColor c=0.5,0.77,0.57,1][NameState i=2][BoxState i=1][PointerMove v3=-1.8,4.2,-1][CharFlip i=1][CharExpress i=1 s=Emberly_Furrowed]>_>
+[UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=2.2,3.7,-1][CharFlip i=0][CharExpress i=0 s=Thena_Confused]hm.
+[BoxState i=4][CharMove i=0 v3=-11,0.4,10][CharMove i=1 v3=-11,0.4,10] [Delay f=2][BG s=MatchaMochaTableDoodle][CharMove i=0 v3=5.42,0.4,10][CharFlip i=2][CharExpress i=1 s=Emberly_Neutral][CharExpress i=0 s=Thena_Surprised][CharMove i=1 v3=2.6,0.4,11][CharMove i=2 v3=-4.5,0.4,11] [Delay f=1.5][BoxState i=1][PointerMove v3=5.1,3.7,-1]Damn, Prim. You knew exactly what you were gunna get before we even\nwalked in.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][UnderColor c=0.89,0.21,0.38,1][NameState i=1][BoxState i=2][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_NeutralAway]Just what I felt like today.
+[PointerFlip][UnderColor c=0.34,0.7,1,1][NameState i=3][BoxState i=2][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile]That's fair.
+[BoxState i=2][CharExpress i=0 s=Thena_Neutral]Hey Emma, did you want to talk about that one thing?
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Neutral]Not sure what you're referring to.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1]Doctor Pituois.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Stressed]What? Why bring that up?
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile]Well, why not? Seems like it'd be a lot easier to do with some help.
+[BoxState i=2]You did say you needed some programming expertise.
+[UnderColor c=0.89,0.21,0.38,1][BoxState i=2][CharAnim i=0 i=3]Prim might be just the person for the job!
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Furrowed]I haven't yet decided if I want to do anything about it.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Neutral]I don't want to push it, but I don't think it'd hurt to ask for advice.
+[UnderColor c=1,0,0,1][BoxState i=2][CharExpress i=0 s=Thena_Smile]<i>You're not gunna snitch on us, right Prim?</i>
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Surprised]Um...there's nothing to snitch about yet-
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile2]See? It'll be fine, Prim swore her life on it.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=0 s=Thena_Smile][CharExpress i=1 s=Emberly_NeutralAway]Ugh, well…
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharAnim i=2 i=1]Shoot. I don't mind.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Smile]We're just plotting to unravel the villainous machinations deeply rooted\nin the foundation of our educational system.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]Except it's one department at a second rate university, and the\nmostly-not-so-underprivileged masses wouldn't give enough of a damn for it\nto be worth it.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]Hey, I wouldn't say that right off the bat. I felt pretty ticked off when you told\nme about it.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Neutral]Yeah, well...you don't usually ask for help from someone you met only\nyesterday.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Neutral]I mean, I'll hear you out. Not sure what I could do, though.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_NeutralAway]Me neither.
+[BoxState i=2][CharExpress i=1 s=Emberly_Neutral]Basically, I'm really close with the psychology department because of a\n professor who helped me at a low point my first year.
+[BoxState i=2]I currently write research reports as part of an internship there, which I started\nover the summer.
+[BoxState i=2]About a week before the semester started, I forgot to charge my laptop\nbefore I left for work.
+[BoxState i=2]My professor was also my supervisor at the internship, and she let me work on\nher personal computer since her day was cluttered with meetings.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]I finished writing for the day, and...I was kind of bored. Started looking\nthrough semester photos from years past, nothing that wasn't on the website.
+[BoxState i=2]There was a folder in the 'recently opened' section with a weird name. Dug\ninto what I shouldn't have.
+[BoxState i=2][CharExpress i=1 s=Emberly_Stressed]Without going into excessive detail...I found notes on quite a few people.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]Students, co-workers, friends...most likely written by my professor, given the\npeople listed.
+[BoxState i=2]The vast majority of it looked like...a personal archive of buttons you'd use to\nget into people's heads.
+[BoxState i=2][CharAnim i=1 i=4]Shit like 'toxic breakup', 'pet died recently', 'trouble trusting friends'[TalkSpeed f=0.3]...[Delay f=1][TalkSpeed f=0.023]\n'homesick and can't go home'.
+[BoxState i=2][CharExpress i=1 s=Emberly_Sad]Guess who the last one was for.
+[BoxState i=2]My name was with a few labelled 'Useful'.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharAnim i=2 i=3]. . .
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Sad]I mean, I'd heard rumors of Dr. Pituois being cruel to certain students, but…
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2]She was always so genuine and kind to me. She still is.
+[BoxState i=2][CharAnim i=1 i=3]I would have never figured out this fucking sociopathic bullshit on my\nown, and I'm still having trouble believing it.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_NeutralAway]I mean...considering your degree-
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Miffed]Don't associate psychology with manipulation. It's not some movie trope\nnonsense.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][CharExpress i=1 s=Emberly_NeutralAway]Besides, my professor mostly does research, which is more analysing\npatterns than individuals.
+[BoxState i=2][CharExpress i=1 s=Emberly_Neutral]It's more comparable to scientific study than counseling and therapy.
+[UnderColor c=0.89,0.21,0.38,1][PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Sad] Oh. Sorry.
+[CharExpress i=2 s=Prim_NeutralAway][PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_SmileSad]All of the people I know in the department are incredible and selfless...save\nPituois, I guess.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]In any case, I heard her coming back to her office while I was still digging\nthrough the notes. Didn't think to make copies or take pictures.
+[BoxState i=2]I don't think she knows I know, and of course I want to do something about it,\nbut…
+[BoxState i=2][CharExpress i=1 s=Emberly_Miffed]No one would believe me. She's been with the university since it kicked off, so\nthey're not gunna want to remove her any time soon. My name would be\nsorted into her shitlist.
+[BoxState i=2][CharAnim i=1 i=4]It's just bullshit all around.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]Sorry if I already asked this before, but weren't those notes hard evidence?
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Neutral]I did have another chance to access her computer while she was out for a bit\na few days ago...
+[BoxState i=2][CharExpress i=1 s=Emberly_Sad]I can't seem to find that folder again. It wasn't in the 'recently opened' list\nanymore, and I was too caught up in the moment to check where it was\nlocated.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]Doesn't show up in a search, either.
+[BoxState i=2][CharExpress i=1 s=Emberly_Neutral]Even if I did have the notes, it's not like she had a bright neon sign with\nher name stuck on it.
+[BoxState i=2]It was just a text document. The department would probably turn it around\nand say that <i>I</i> wrote it.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Neutral]You're close to a lot of 'em, though. Would they really not believe you?
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Furrowed]No doubt they'd side with Dr. Pituois over me. I've only been working there\nfor a summer.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][CharExpress i=1 s=Emberly_NeutralAway]In any case...I'm not sure if it's really worth pursuing.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharAnim i=0 i=4]I think it is. The whole thing is honestly pretty messed up.
+[BoxState i=2]You shouldn't underestimate the power of a mob of angry students.
+[BoxState i=2]Plus, we may have a secret weapon on our side.
+[BoxState i=2][PointerMove v3=5.1,3.7,-1][CharAnim i=0 i=3] Enter from stage right...Prim!
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Surprised]...uh.
+[PointerFlip][BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile]You said you were some kind of hacker, right?
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Neutral]Freelance software engineer.
+[BoxState i=2][CharAnim i=2 i=1]Guess you could say 'hacker', though. I mess with black hat stuff sometimes.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Surprised]What can you do in regards to that?
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][CharExpress i=1 s=Emberly_Neutral]I didn't want to ask for help when I don't fully understand what that entails.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharAnim i=2 i=2]Well...I can set up a false network nested in this cafe's wifi and sniff traffic\nfrom every device connected to it.
+[BoxState i=2][CharExpress i=2 s=Prim_SmugCoffee]I've written ransomware before, I can brute force personal accounts, I can\nmake your phone overheat and melt itself over the internet…
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Furrowed]That last one sounds made up.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharAnim i=2 i=2]Yeah, you're right. [Delay f=0.5]It'd be easier to just brick it with malware.
+[BoxState i=2][CharExpress i=2 s=Prim_Neutral]Point is, I can at least tell you what is and isn't possible.
+[BoxState i=2]Can't promise any more than that.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharAnim i=1 i=5]Would it be difficult to, say...<size=80%>I'm really not sure what the right terminology is for this...</size>
+[BoxState i=2]Locate that file, along with undeniably identifying traits...
+[BoxState i=2]...and then rapidly disseminate it to as many students and faculty as possible?
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Stare]Gunna need more context than that.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Stressed]Look, I haven't really made up any sort of plan yet. I don't even know if I\nshould do anything about it.
+[BoxState i=2][CharExpress i=1 s=Emberly_Sad]It's just way too much risk, even if I can't stand the idea of this\nhappening under everyone's nose.
+[CharExpress i=2 s=Prim_Neutral][BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Neutral]Hmm...do you remember any other names from the list?
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1]You could try to talk to some of them, get more info.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Surprised]I mean, I guess? I didn't recognize a lot of people on the list, and there were\nonly first names.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Surprised]Wait, aren't some of your classmates on there?
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Furrowed]Yes.[Delay f=1] I mostly keep to myself in classes.
+[BoxState i=2][CharExpress i=1 s=Emberly_Neutral]It was a fairly extensive list, and I only remember a few names off the top of\nmy head.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]That may be my only starting point at present, though...
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Smile2]I can help ask around if you're worried about getting caught snooping around.
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Stressed]I appreciate the offer, but...I don't know. This is just a lot to process.
+[CharExpress i=0 s=Thena_Neutral][PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_NeutralAway]Well, if you're looking to locate that file, I doubt I could do much more than\nwhat you've done already.
+[BoxState i=2][CharExpress i=2 s=Prim_Neutral] I would probably be caught by the spam filter pretty quickly if we tried mass\nemailing it...unless you have access to a credible account on their email\nserver?
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Neutral]Only certain faculty can pass through the spam filter to send an email blast.\nIt wouldn't be hard to trace it back to me, even if I stole an authorized\naccount.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharExpress i=2 s=Prim_Sad]Then you're probably right. Too much risk.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Surprised]Oh...that's a shame.
+[BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]I need more time to think through my options.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=4.6,3,-1][CharAnim i=0 i=1]Have you considered murder-
+[BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Furrowed]Yes. Too many witnesses to account for.
+[CharExpress i=0 s=Thena_Neutral][BoxState i=2][CharExpress i=1 s=Emberly_NeutralAway]Thanks for hearing me out, though.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1][CharAnim i=2 i=1]Sure.
+[BoxState i=2]I need to leave now, unfortunately. Got a lot of coursework to take care of at\nhome.
+[PointerFlip][BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][PointerMove v3=5.1,3.7,-1][CharExpress i=0 s=Thena_Neutral]Aw, that sucks.
+[BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][CharExpress i=0 s=Thena_Smile]We'll be around if you want to hang!
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1]I'll keep that in mind.
+[PointerFlip][BoxState i=2][UnderColor c=0.5,0.77,0.57,1][NameState i=2][PointerMove v3=1.8,4.2,-1][CharExpress i=1 s=Emberly_Neutral]Take care, then.[Delay f=0.75] Sorry for ending the day on such a sour note.
+[PointerFlip][BoxState i=2][UnderColor c=0.89,0.21,0.38,1][NameState i=1][PointerMove v3=-3.6,4.2,-1]It's all good. See you two later.
+[PointerFlip][BoxState i=2][UnderColor c=0.34,0.7,1,1][NameState i=3][CharExpress i=0 s=Thena_Smile2] Bye, Prim!

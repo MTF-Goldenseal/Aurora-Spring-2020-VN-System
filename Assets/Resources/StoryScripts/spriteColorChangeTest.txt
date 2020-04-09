@@ -1,2 +1,3 @@
 [NameState i=27665][Voice s=GenericVoice2][SpawnChar s=Chen s=chenSmile v3=-11,0,9.3][CharMove i=0 v3=-4.7,0,9.3][PointerMove v3=-3.58,4.2,-1][BoxState i=1]Beginning CharFade test.
 [CharFadeTo i=0 c=1,0.5,0,1 f=3][BoxState i=2]Fading to orange.
+[CharColor i=0 c=1,0.5,0,1]Setting to orange.
