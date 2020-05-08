@@ -58,7 +58,7 @@ being in my room without anyone around
 [MessageSender i=1]Oh?
 [MessageSender i=0]last night i kinda had this
 [SetVFX i=0 i=5] really bizarre nightmare
-[Voice s=MorganGuardedHigh][SpawnVFX s=ShowcaseDream]It was really dark and foggy in every direction. I couldn't really see anything around me at all.
+[Voice s=MorganGuardedHigh][SpawnVFX s=ShowcaseDream][PlayMusic s=Paratoxic_Horror]It was really dark and foggy in every direction. I couldn't really see anything around me at all.
 Except for a mirror, sitting right in front of my face.
 [SetVFX i=1 i=1]Looking into it, I saw these...abrasions. All over my body.
 Made of bone and sinew, protruding and bleeding.
@@ -79,7 +79,7 @@ My eyes weighed heavily. I shouldn't have been conscious.
 I knew what I had to do.
 [SetVFX i=1 i=7]It felt like I was on the verge of collapsing as I lifted the dead weight of my arm up, the scalpel firmly grasped between two fingers...
 ...and I decided to start from the top.
-If I just carved it out...I'd be able to breathe again, right?
+[StopMusic]If I just carved it out...I'd be able to breathe again, right?
 I just wanted to breathe
 [MessageSender i=0][SetVFX i=0 i=1]uhh
 hhhhhhhhhhhhhhh
