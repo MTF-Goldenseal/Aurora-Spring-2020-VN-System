@@ -95,7 +95,8 @@ um
 [MessageSender i=1]You sure this isn't like...one of your short stories?
 [MessageSender i=0][SetVFX i=0 i=5]what
 no
-god no i couldn't dream of writing something as fucked up as whatever i just experienced
+god no 
+i couldn't dream of writing something as fucked up as whatever i just experienced
 this is a thing that actually just happened to me this morning and my neck still hurts
 [MessageSender i=1]No, I get that it happened, I'm not doubting that
 [MessageSender i=0]are you?
@@ -118,7 +119,8 @@ idk i guess
 playing it up as this ridiculous story, turning it into a writing exercise
 just like, putting it out there into words
 kinda helps
-you know how it is when you talk about something that's been bubbling in your head and all of a sudden it's not so bad
+you know how it is when you talk about something that's been bubbling in your head
+and all of a sudden it's not so bad
 sorry if this is kinda weird
 [SetVFX i=0 i=1][SetVFX i=0 i=1]dreams are some weird shit and this one tried to kill me apparently
 [MessageSender i=1]Yeah, I've never heard of anything like this before
@@ -127,26 +129,31 @@ so
 [MessageSender i=1]Glad to hear it
 The bus is running kinda late right now, I'd say give us maybe half an hour to get back
 [MessageSender i=0]gotcha
-[MessageSender i=1]Honestly, I'm not really sure what to say about the whole thing. Hopefully just a crazy phenomenon like you said
+[MessageSender i=1]Honestly, I'm not really sure what to say about the whole thing.
+Hopefully just a crazy phenomenon like you said
 I still feel like you're hiding something, but it's up to you if you want to share
 [MessageSender i=0]i'll try to keep that in mind
-[MessageSender i=1]You think you'll be physically alright by tomorrow? It'd suck to have to go to class looking like that
+[MessageSender i=1]You think you'll be physically alright by tomorrow?
+It'd suck to have to go to class looking like that
 [MessageSender i=0][SetVFX i=0 i=4]thought about that actually
 i found an old bandanna in my closet
 tied it around my neck so people won't give me weird looks or whatever
 [MessageSender i=1]Smart idea, I hadn't thought of that
 We're getting on the bus now, I'll see you in a bit. 
-Get some water and rest on the couch in the living room. You better not still be holed up in there by the time we get back
+Get some water and rest on the couch in the living room.
+You better not still be holed up in there by the time we get back
 [MessageSender i=0][SetVFX i=0 i=0]i will
--pause?-
 [SetVFX i=0 i=6][SetVFX i=0 i=6]oh i've been meaning to ask
-how's that one friend of yours doing? the one you said was going through some shit last year
+how's that one friend of yours doing?
+the one you said was going through some shit last year
 [SetVFX i=0 i=0][SetVFX i=0 i=0]not sure why it came to mind but i'm curious
-[MessageSender i=1]You mean Prim? If so, it's actually kind of scary how much better she's doing right now lol
+[MessageSender i=1]You mean Prim?
+If so, it's actually kind of scary how much better she's doing right now lol
 Almost like a completely new person
 I still try to check in with her occasionally, but she seems to be holding up well
 [MessageSender i=0][SetVFX i=0 i=4]that's good to hear
-[SetVFX i=0 i=0][SetVFX i=0 i=0]i just remember when you were stressing about that, didn't know if it got better or what
+[SetVFX i=0 i=0][SetVFX i=0 i=0]i just remember when you were stressing about that
+didn't know if it got better or what
 eta on getting here?
 [MessageSender i=1]I'd say give it like twenty minutes, traffic lightened up. I'll catch up with you later bro
 [MessageSender i=0][SetVFX i=0 i=3]aight
