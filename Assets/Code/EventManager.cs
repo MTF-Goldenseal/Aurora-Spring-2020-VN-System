@@ -385,10 +385,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			VFXScriptInstance.SetIndex(VFXList.Count - 1);
 		}
 	}
-	public void SetVFX(int index, int state)
-	{
-		//Animator VFXScriptAnimator = VFXList[index].GetComponent<Animator>();
-		//VFXScriptAnimator.SetInteger("animState", state);
+	public void SetVFX(int index, int state) {
+		Animator VFXScriptAnimator = VFXList[index].GetComponent<Animator>();
+		VFXScriptAnimator.SetInteger("animState", state);
 	}
 	public void EndVFX(int index) {
 		if ((index == -1) || index >= VFXList.Count) {

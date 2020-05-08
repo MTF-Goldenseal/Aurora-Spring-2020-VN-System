@@ -1,148 +1,147 @@
-[MessageSender i=0][SetVFX i=0 i=0]jules
-[SetVFX i=0 i=0]julesjulesjulesjules
-[SetVFX i=0 i=0]juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
-[SetVFX i=0 i=0]juu\nuuuuu\nuuuu\nuuuu\nuuuu\nuuuu\nuuuu\nuuuu\nuuules
-[SetVFX i=0 i=0]@OrangeJules-ce
-[MessageSender i=1][SetVFX i=0 i=0]Yo sorry, I didnt notice my phone light up earlier today. What's going on bro?
-[MessageSender i=0][SetVFX i=0 i=0]oh thank god you're alive
-[SetVFX i=0 i=0]kinda just need someone to talk to rn
-[MessageSender i=1][SetVFX i=0 i=0]Then call me, you know I don't check my messages like that
-[MessageSender i=0][SetVFX i=0 i=0]i would but like
-[SetVFX i=0 i=0]throat's kinda messed up rn .-.
-[MessageSender i=1][SetVFX i=0 i=0]What do you mean?
+[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0]jules
+julesjulesjulesjules
+juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
+@OrangeJules-ce
+[MessageSender i=1]Yo sorry, I didnt notice my phone light up earlier today. What's going on bro?
+[MessageSender i=0][SetVFX i=0 i=5]oh thank god you're alive
+ kinda just need someone to talk to rn
+[MessageSender i=1]Then call me, you know I don't check my messages like that
+[MessageSender i=0]i would but like
+ throat's kinda messed up rn .-.
+[MessageSender i=1]What do you mean?
 [MessageSender i=0][SetVFX i=0 i=0]so uh this morning
-[SetVFX i=0 i=0]i kinda suddenly woke up w/ some blood under my fingernails
-[SetVFX i=0 i=0]and couldn't move my head without hurting like mad
-[SetVFX i=0 i=0]went to check the mirror and the entire front of my neck had bloody scratches all over
-[SetVFX i=0 i=0]apparently it happened while i was sleeping
-[MessageSender i=1][SetVFX i=0 i=0]What the hell?? Why didn't you ask for help this morning, I knocked on your door n everything
-[SetVFX i=0 i=0]Why didn't you go to the clinic?
-[MessageSender i=0][SetVFX i=0 i=0]it's ok it was mostly surface level, there's like two cuts with a bit of blood
-[SetVFX i=0 i=0]really red tho, itty bitty flakes of skin in a bunch of neat lines
-[SetVFX i=0 i=0]feels like i got slapped in the neck with a hot coal
-[SetVFX i=0 i=0]i patched myself up w the first aid kid
-[SetVFX i=0 i=0]*kit
-[MessageSender i=1][SetVFX i=0 i=0]Dude just go. I'll call them myself if i gotta
-[MessageSender i=0][SetVFX i=0 i=0]applied the burn cream stuff whatever tf it is and tied a gauze pad onto the danger zone just to be super safe
-[SetVFX i=0 i=0]still kind of a pain to move my head but i think it's all good
-[SetVFX i=0 i=0]also i'd have to walk to the clinic and that sounds like effort and neck pain
-[MessageSender i=1][SetVFX i=0 i=0]FFS Morgan, you can't just not tell us when you get hurt
-[SetVFX i=0 i=0]This was happening when I was asking you to come along with us, right?
-[SetVFX i=0 i=0]You better not be clamming up from the rest of the dormroom again
-[MessageSender i=0][SetVFX i=0 i=0]yeah but
-[SetVFX i=0 i=0]i didn't want to ruin yalls celebration
-[SetVFX i=0 i=0]idk this whole thing is awful and embarrassing and i'm overthinking like mad
-[SetVFX i=0 i=0]congrats on landing the studio job btw i forgot to mention earlier
-[MessageSender i=1][SetVFX i=0 i=0]Uhh, about that
-Jules: I actually don't have the job yet
+i kinda suddenly woke up w/ some blood under my fingernails
+and couldn't move my head without hurting like mad
+went to check the mirror and the entire front of my neck had bloody scratches all over
+apparently it happened while i was sleeping
+[MessageSender i=1]What the hell?? Why didn't you ask for help this morning, I knocked on your door n everything
+Why didn't you go to the clinic?
+[MessageSender i=0]it's ok it was mostly surface level, there's like two cuts with a bit of blood
+really red tho, itty bitty flakes of skin in a bunch of neat lines
+feels like i got slapped in the neck with a hot coal
+i patched myself up w the first aid kid
+*kit
+[MessageSender i=1]Dude just go. I'll call them myself if i gotta
+[MessageSender i=0]applied the burn cream stuff whatever tf it is and tied a gauze pad onto the danger zone just to be super safe
+still kind of a pain to move my head but i think it's all good
+also i'd have to walk to the clinic and that sounds like effort and neck pain
+[MessageSender i=1]FFS Morgan, you can't just not tell us when you get hurt
+This was happening when I was asking you to come along with us, right?
+You better not be clamming up from the rest of the dormroom again
+[MessageSender i=0][SetVFX i=0 i=5]yeah but
+i didn't want to ruin yalls celebration
+idk this whole thing is awful and embarrassing and i'm overthinking like mad
+congrats on landing the studio job btw i forgot to mention earlier
+[MessageSender i=1]Uhh, about that
+I actually don't have the job yet
 [MessageSender i=0]??
 [MessageSender i=1]Not important right now, though
-[SetVFX i=0 i=0]Jules: Next time you try to keep stuff like this to yourself, we're taking your door off the hinges
-[MessageSender i=0][SetVFX i=0 i=0]wait no
-[MessageSender i=1][SetVFX i=0 i=0]I don't even know what to say, has this ever happened before?
-[MessageSender i=0][SetVFX i=0 i=0]no and it's got me kinda freaked out
-[SetVFX i=0 i=0]i only messaged now 'cause my mind was really starting to run circles
-[SetVFX i=0 i=0]being in my room without anyone around
-[MessageSender i=1][SetVFX i=0 i=0]And whose fault is that
-[MessageSender i=0][SetVFX i=0 i=0]touche
-[MessageSender i=1][SetVFX i=0 i=0]We were planning on getting back pretty soon, if you need anything
-[MessageSender i=0][SetVFX i=0 i=0]awesome, say hi to jae n peyton for me
-[MessageSender i=1][SetVFX i=0 i=0]I told them what happened
+Next time you try to keep stuff like this to yourself, we're taking your door off the hinges
+[MessageSender i=0][SetVFX i=0 i=6]wait no
+[MessageSender i=1]I don't even know what to say, has this ever happened before?
+[MessageSender i=0][SetVFX i=0 i=5]no and it's got me kinda freaked out
+i only messaged now 'cause my mind was really starting to run circles
+being in my room without anyone around
+[MessageSender i=1]And whose fault is that
+[MessageSender i=0][SetVFX i=0 i=2]touche
+[MessageSender i=1]We were planning on getting back pretty soon, if you need anything
+[MessageSender i=0][SetVFX i=0 i=4]awesome, say hi to jae n peyton for me
+[MessageSender i=1]I told them what happened
 [MessageSender i=0][SetVFX i=0 i=0]oh i guess that too
-[MessageSender i=1][SetVFX i=0 i=0]Did you replace the bandages since this morning? Or whenever it happened
-[MessageSender i=0][SetVFX i=0 i=0]yeah i've been swapping them out
-[MessageSender i=1][SetVFX i=0 i=0]I think Peyton forgot to restock the first aid kit, he's always using the bandages
-[MessageSender i=0][SetVFX i=0 i=0]i have medical tape, it's all good
-[MessageSender i=1][SetVFX i=0 i=0]Huh, didn't know we had that
-[MessageSender i=0][SetVFX i=0 i=0]yeah haha
+[MessageSender i=1]Did you replace the bandages since this morning? Or whenever it happened
+[MessageSender i=0]yeah i've been swapping them out
+[MessageSender i=1]I think Peyton forgot to restock the first aid kit, he's always using the bandages
+[MessageSender i=0]i have medical tape, it's all good
+[MessageSender i=1]Huh, didn't know we had that
+[MessageSender i=0][SetVFX i=0 i=1]yeah haha
 [SetVFX i=0 i=0]i think i might have an idea why this happened
-[MessageSender i=1][SetVFX i=0 i=0]Oh?
-[MessageSender i=0][SetVFX i=0 i=0]last night i kinda had this
-[SetVFX i=0 i=0]really bizarre nightmare
-[SetVFX i=0 i=0]It was really dark and foggy in every direction. I couldn't really see anything around me at all.
-[SetVFX i=0 i=0]Except for a mirror, sitting right in front of my face.
-[SetVFX i=0 i=0]Looking into it, I saw these...abrasions. All over my body.
-[SetVFX i=0 i=0]Made of bone and sinew, protruding and bleeding.
-[SetVFX i=0 i=0]I was blanketed with a dull sense of pain and overwhelming itchiness.
-[SetVFX i=0 i=0]My limbs barely responded to me, as if they'd all fallen asleep.
-[SetVFX i=0 i=0]I couldn't get this shrill ringing out of my ears, and I could barely lift my head.
-[SetVFX i=0 i=0]When I finally managed to lift my eyes...
-[SetVFX i=0 i=0]It was...disgusting.
-[SetVFX i=0 i=0]An infected mass of cartilage and ligaments, pus pouring out of the edges.
-[SetVFX i=0 i=0]I could hardly move. I could barely breathe.
-[SetVFX i=0 i=0]It took all of my effort to force air into my lungs.
-[SetVFX i=0 i=0]And I was starting to give out.
-[SetVFX i=0 i=0]I had to get this out of my throat no matter what...
-[SetVFX i=0 i=0]I kept clawing at my neck, but to no avail. The growth began to close my windpipe.
-[SetVFX i=0 i=0]My eyes weighed heavily. I shouldn't have been conscious.
-[SetVFX i=0 i=0]But then, I felt something appear in my hands out of the thinning air.
-[SetVFX i=0 i=0]A wave of fear almost buckled my legs...
-[SetVFX i=0 i=0]I knew what I had to do.
-[SetVFX i=0 i=0]It felt like I was on the verge of collapsing as I lifted the dead weight of my arm up, the scalpel firmly grasped between two fingers...
-[SetVFX i=0 i=0]...and I decided to start from the top.
-[SetVFX i=0 i=0]If I just carved it out...I'd be able to breathe again, right?
-[SetVFX i=0 i=0]I just wanted to breathe
-[MessageSender i=0][SetVFX i=0 i=0]uhh
-[SetVFX i=0 i=0]hhhhhhhhhhhhhhh
+[MessageSender i=1]Oh?
+[MessageSender i=0]last night i kinda had this
+[SetVFX i=0 i=5] really bizarre nightmare
+[Voice s=MorganGuardedHigh][SpawnVFX s=ShowcaseDream]It was really dark and foggy in every direction. I couldn't really see anything around me at all.
+Except for a mirror, sitting right in front of my face.
+[SetVFX i=1 i=1]Looking into it, I saw these...abrasions. All over my body.
+Made of bone and sinew, protruding and bleeding.
+I was blanketed with a dull sense of pain and overwhelming itchiness.
+My limbs barely responded to me, as if they'd all fallen asleep.
+I couldn't get this shrill ringing out of my ears, and I could barely lift my head.
+[SetVFX i=1 i=2]When I finally managed to lift my eyes...
+It was...disgusting.
+An infected mass of cartilage and ligaments, pus pouring out of the edges.
+[SetVFX i=1 i=3]I could hardly move. I could barely breathe.
+It took all of my effort to force air into my lungs.
+And I was starting to give out.
+[SetVFX i=1 i=4]I had to get this out of my throat no matter what...
+I kept clawing at my neck, but to no avail. The growth began to close my windpipe.
+My eyes weighed heavily. I shouldn't have been conscious.
+[SetVFX i=1 i=5]But then, I felt something appear in my hands out of the thinning air.
+[SetVFX i=1 i=6]A wave of fear almost buckled my legs...
+I knew what I had to do.
+[SetVFX i=1 i=7]It felt like I was on the verge of collapsing as I lifted the dead weight of my arm up, the scalpel firmly grasped between two fingers...
+...and I decided to start from the top.
+If I just carved it out...I'd be able to breathe again, right?
+I just wanted to breathe
+[MessageSender i=0][SetVFX i=0 i=1]uhh
+hhhhhhhhhhhhhhh
 [SetVFX i=0 i=0]i don't remember what happened after that
-[MessageSender i=1][SetVFX i=0 i=0]Good god, what the hell dude
-[MessageSender i=0][SetVFX i=0 i=0]huh?
-[MessageSender i=1][SetVFX i=0 i=0]We were just out getting food, why do you have to phrase it like that?
-[MessageSender i=0][SetVFX i=0 i=0]oh
-[SetVFX i=0 i=0]um
-[MessageSender i=1][SetVFX i=0 i=0]You sure this isn't like...one of your short stories?
-[MessageSender i=0][SetVFX i=0 i=0]what
-[SetVFX i=0 i=0]no
-[SetVFX i=0 i=0]god no i couldn't dream of writing something as fucked up as whatever i just experienced
-[SetVFX i=0 i=0]this is a thing that actually just happened to me this morning and my neck still hurts
-[MessageSender i=1][SetVFX i=0 i=0]No, I get that it happened, I'm not doubting that
-[MessageSender i=0][SetVFX i=0 i=0]are you?
-[MessageSender i=1][SetVFX i=0 i=0]I guess reading through what you sent gave me kind of the same feeling
-[SetVFX i=0 i=0]Maybe you should think about finding a therapist tomorrow
-[SetVFX i=0 i=0]What you just wrote right there isn't something to be taken lightly. Sounds like it could be indicative of something heavier
-[MessageSender i=0][SetVFX i=0 i=0]i told you this never happened before, it's probably just a one time thing
-[SetVFX i=0 i=0]needed some way to vent about it
-[MessageSender i=1][SetVFX i=0 i=0]Anything I should know that you haven't told me?
-[MessageSender i=0][SetVFX i=0 i=0]nahhhhhhh
-[SetVFX i=0 i=0]hope you enjoyed my shitty creepypasta, like comment n subscribe
-[MessageSender i=1][SetVFX i=0 i=0]I mean...look, I get it. You had this freak nightmare, but it looks like you already did everything you could to fix it
-[SetVFX i=0 i=0]Sorry if it seemed like I was just brushing you off, but I'm not really sure what I can do to help right this second
-[SetVFX i=0 i=0]We're all going to be back soon anyways
+[MessageSender i=1]Good god, what the hell dude
+[MessageSender i=0][SetVFX i=0 i=6]huh?
+[MessageSender i=1]We were just out getting food, why do you have to phrase it like that?
+[MessageSender i=0][SetVFX i=0 i=3]oh
+Morgan: um
+[MessageSender i=1]You sure this isn't like...one of your short stories?
+[MessageSender i=0][SetVFX i=0 i=5]what
+no
+god no i couldn't dream of writing something as fucked up as whatever i just experienced
+this is a thing that actually just happened to me this morning and my neck still hurts
+[MessageSender i=1]No, I get that it happened, I'm not doubting that
+[MessageSender i=0]are you?
+[MessageSender i=1]I guess reading through what you sent gave me kind of the same feeling
+Maybe you should think about finding a therapist tomorrow
+What you just wrote right there isn't something to be taken lightly. Sounds like it could be indicative of something heavier
+[MessageSender i=0][SetVFX i=0 i=5]i told you this never happened before, it's probably just a one time thing
+needed some way to vent about it
+[MessageSender i=1]Anything I should know that you haven't told me?
+[MessageSender i=0][SetVFX i=0 i=2]nahhhhhhh
+hope you enjoyed my shitty creepypasta, like comment n subscribe
+[MessageSender i=1]I mean...look, I get it. You had this freak nightmare, but it looks like you already did everything you could to fix it
+Sorry if it seemed like I was just brushing you off, but I'm not really sure what I can do to help right this second
+We're all going to be back soon anyways
 [MessageSender i=0][SetVFX i=0 i=0]i mean
-[SetVFX i=0 i=0]idk i guess
-[SetVFX i=0 i=0]playing it up as this ridiculous story, turning it into a writing exercise
-[SetVFX i=0 i=0]just like, putting it out there into words
-[SetVFX i=0 i=0]kinda helps
-[SetVFX i=0 i=0]you know how it is when you talk about something that's been bubbling in your head and all of a sudden it's not so bad
-[SetVFX i=0 i=0]sorry if this is kinda weird
-[SetVFX i=0 i=0]dreams are some weird shit and this one tried to kill me apparently
-[MessageSender i=1][SetVFX i=0 i=0]Yeah, I've never heard of anything like this before
+idk i guess
+playing it up as this ridiculous story, turning it into a writing exercise
+just like, putting it out there into words
+kinda helps
+you know how it is when you talk about something that's been bubbling in your head and all of a sudden it's not so bad
+sorry if this is kinda weird
+[SetVFX i=0 i=1][SetVFX i=0 i=1]dreams are some weird shit and this one tried to kill me apparently
+[MessageSender i=1]Yeah, I've never heard of anything like this before
 [MessageSender i=0][SetVFX i=0 i=0]i think i'm feeling a little better now though
-[SetVFX i=0 i=0]so
-[MessageSender i=1][SetVFX i=0 i=0]Glad to hear it
-[SetVFX i=0 i=0]The bus is running kinda late right now, I'd say give us maybe half an hour to get back
-[MessageSender i=0][SetVFX i=0 i=0]gotcha
-[MessageSender i=1][SetVFX i=0 i=0]Honestly, I'm not really sure what to say about the whole thing. Hopefully just a crazy phenomenon like you said
-[SetVFX i=0 i=0]I still feel like you're hiding something, but it's up to you if you want to share
-[MessageSender i=0][SetVFX i=0 i=0]i'll try to keep that in mind
-[MessageSender i=1][SetVFX i=0 i=0]You think you'll be physically alright by tomorrow? It'd suck to have to go to class looking like that
-[MessageSender i=0][SetVFX i=0 i=0]thought about that actually
-[SetVFX i=0 i=0]i found an old bandanna in my closet
-[SetVFX i=0 i=0]tied it around my neck so people won't give me weird looks or whatever
-[MessageSender i=1][SetVFX i=0 i=0]Smart idea, I hadn't thought of that
-[SetVFX i=0 i=0]We're getting on the bus now, I'll see you in a bit. 
-[SetVFX i=0 i=0]Get some water and rest on the couch in the living room. You better not still be holed up in there by the time we get back
+so
+[MessageSender i=1]Glad to hear it
+The bus is running kinda late right now, I'd say give us maybe half an hour to get back
+[MessageSender i=0]gotcha
+[MessageSender i=1]Honestly, I'm not really sure what to say about the whole thing. Hopefully just a crazy phenomenon like you said
+I still feel like you're hiding something, but it's up to you if you want to share
+[MessageSender i=0]i'll try to keep that in mind
+[MessageSender i=1]You think you'll be physically alright by tomorrow? It'd suck to have to go to class looking like that
+[MessageSender i=0][SetVFX i=0 i=4]thought about that actually
+i found an old bandanna in my closet
+tied it around my neck so people won't give me weird looks or whatever
+[MessageSender i=1]Smart idea, I hadn't thought of that
+We're getting on the bus now, I'll see you in a bit. 
+Get some water and rest on the couch in the living room. You better not still be holed up in there by the time we get back
 [MessageSender i=0][SetVFX i=0 i=0]i will
 -pause?-
-[SetVFX i=0 i=0]oh i've been meaning to ask
-[SetVFX i=0 i=0]how's that one friend of yours doing? the one you said was going through some shit last year
-[SetVFX i=0 i=0]not sure why it came to mind but i'm curious
-[MessageSender i=1][SetVFX i=0 i=0]You mean Prim? If so, it's actually kind of scary how much better she's doing right now lol
-[SetVFX i=0 i=0]Almost like a completely new person
-[SetVFX i=0 i=0]I still try to check in with her occasionally, but she seems to be holding up well
-[MessageSender i=0][SetVFX i=0 i=0]that's good to hear
-[SetVFX i=0 i=0]i just remember when you were stressing about that, didn't know if it got better or what
-[SetVFX i=0 i=0]eta on getting here?
-[MessageSender i=1][SetVFX i=0 i=0]I'd say give it like twenty minutes, traffic lightened up. I'll catch up with you later bro
-[MessageSender i=0][SetVFX i=0 i=0]aight
-[SetVFX i=0 i=0]cya soon
+[SetVFX i=0 i=6][SetVFX i=0 i=6]oh i've been meaning to ask
+how's that one friend of yours doing? the one you said was going through some shit last year
+[SetVFX i=0 i=0][SetVFX i=0 i=0]not sure why it came to mind but i'm curious
+[MessageSender i=1]You mean Prim? If so, it's actually kind of scary how much better she's doing right now lol
+Almost like a completely new person
+I still try to check in with her occasionally, but she seems to be holding up well
+[MessageSender i=0][SetVFX i=0 i=4]that's good to hear
+[SetVFX i=0 i=0][SetVFX i=0 i=0]i just remember when you were stressing about that, didn't know if it got better or what
+eta on getting here?
+[MessageSender i=1]I'd say give it like twenty minutes, traffic lightened up. I'll catch up with you later bro
+[MessageSender i=0][SetVFX i=0 i=3]aight
+cya soon
