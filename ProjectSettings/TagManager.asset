@@ -67,3 +67,9 @@ TagManager:
   - name: DialogueVFX
     uniqueID: 3131257685
     locked: 0
+  - name: DreamLayer
+    uniqueID: 4051776049
+    locked: 0
+  - name: Presentation
+    uniqueID: 2476320693
+    locked: 0
