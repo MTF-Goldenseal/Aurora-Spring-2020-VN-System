@@ -12,6 +12,7 @@ public class PhoneMessage : MonoBehaviour
     float transitionFraction = 0.0f;
     bool transitioning = false;
 
+    public SpriteRenderer bubbleSprite;
     public GameObject dialogueTextObject;
     public TextMeshPro dialogueText;
     private GameObject spawn;
@@ -42,19 +43,30 @@ public class PhoneMessage : MonoBehaviour
         dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
         dialogueText.text = "";
 
+        
+
         this.sender = sender;
         Debug.Log(text);
         dialogueText.text = text;
         // this.messageUnderlayColor = c;
 
         // Set Underlay Color 
-        //dialogueText.fontSharedMaterial.SetColor("_UnderlayColor", this.messageUnderlayColor);
+
         // Also differentiate user message Spawn vs Other message spawn so we can have custom prefabs for user messages that have custom widths
         if (this.sender == 0) { // Main Actor 
+            // Some hack shit
+            bubbleSprite = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
+            transform.GetChild(2).gameObject.active = false;
+            dialogueText.alignment = TextAlignmentOptions.TopRight;
             dialogueText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Carlito-Regular SDF User");
             this.spawn = phone.messageSpawn; 
-        } else {
+        } else { // Other messenger
+            // Some hack shit
+            bubbleSprite = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
+            transform.GetChild(1).gameObject.active = false;
             dialogueText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Carlito-Regular SDF Other");
+            this.spawn = phone.messageSpawn;
+
         }
 
         transform.position = spawn.transform.position;

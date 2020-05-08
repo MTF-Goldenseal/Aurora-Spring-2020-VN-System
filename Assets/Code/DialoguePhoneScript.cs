@@ -52,20 +52,22 @@ public class DialoguePhoneScript : MonoBehaviour
         phoneMessage.Initialize(this, sender, text);
         sentMessages.Add(phoneMessage);
 
-        if (phoneMessage.dialogueText.GetPreferredValues().y > 1.0)
+        SpriteRenderer messageSprite = phoneMessage.bubbleSprite;
+
+        if (phoneMessage.dialogueText.GetPreferredValues().y > 1.0) // Jank to see if big box needed
         {
-            phoneMessage.GetComponent<SpriteRenderer>().sprite = largeBox;
+            messageSprite.sprite = largeBox;
         } 
-        else if (phoneMessage.dialogueText.GetPreferredValues().y > .5)
+        else if (phoneMessage.dialogueText.GetPreferredValues().y > .5) // Jank to see if medium box
         {
-            phoneMessage.GetComponent<SpriteRenderer>().sprite = mediumBox;
+            messageSprite.sprite = mediumBox;
         } 
-        else
+        else // smol box
         {
-            phoneMessage.GetComponent<SpriteRenderer>().sprite = smallBox;
+            messageSprite.sprite = smallBox;
         }
 
-        // add message length and default message distance
+        // add message length and default message distance to offset
         Vector3 offset = new Vector3(0, defaultMessageDistance, 0) + new Vector3(0, phoneMessage.dialogueText.GetPreferredValues().y, 0);
 
         ShiftMessages(offset);
