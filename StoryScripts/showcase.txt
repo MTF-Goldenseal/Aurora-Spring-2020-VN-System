@@ -1,4 +1,4 @@
-[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=ShowcaseScene]jules
+[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=ShowcaseSceneMusic]jules
 julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
