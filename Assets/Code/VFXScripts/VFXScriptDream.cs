@@ -24,7 +24,8 @@ public class VFXScriptDream : VFXScript {
     }
 
     public void PlaySound() {
-        audioPlayer.Play();
+        if (audioPlayer.isPlaying == false)
+            audioPlayer.Play();
     }
     public void StopSound() {
         audioPlayer.Stop();
