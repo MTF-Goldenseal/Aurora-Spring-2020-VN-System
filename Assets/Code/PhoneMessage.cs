@@ -18,9 +18,6 @@ public class PhoneMessage : MonoBehaviour
 
     private void Start()
     {
-        dialogueTextObject = gameObject.transform.GetChild(0).gameObject;
-        dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
-        dialogueText.text = "";
     }
 
     private void Update()
@@ -41,7 +38,12 @@ public class PhoneMessage : MonoBehaviour
 
     public void Initialize(DialoguePhoneScript phone, int sender, string text)
     {
+        dialogueTextObject = gameObject.transform.GetChild(0).gameObject;
+        dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
+        dialogueText.text = "";
+
         this.sender = sender;
+        Debug.Log(text);
         dialogueText.text = text;
         // this.messageUnderlayColor = c;
 
@@ -63,6 +65,8 @@ public class PhoneMessage : MonoBehaviour
         this.transitioning = true;
         this.transitionFraction = 0.0f;
         this.startPosition = transform.position;
+        Debug.Log(offset);
+        Debug.Log(v);
         this.offset += v;
         this.destinationPosition = spawn.transform.position + offset;
     }

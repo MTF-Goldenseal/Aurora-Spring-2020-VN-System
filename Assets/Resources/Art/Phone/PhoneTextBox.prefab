@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.991, y: -1.846}
-  m_SizeDelta: {x: 4.798, y: 4.274}
+  m_SizeDelta: {x: 4, y: 4.274}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &2372033609444942708
 MeshRenderer:
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem ipsum dolor sit amet
+  m_text: Lorem ipsum dolor sit ametjdddddddddddddddddddddddddddddddd
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 74dad2b28cc975745abbc8dec810d853, type: 2}
   m_sharedMaterial: {fileID: 21104966242630486, guid: 74dad2b28cc975745abbc8dec810d853,
@@ -180,12 +180,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 2372033609444942705}
-    characterCount: 26
+    characterCount: 59
     spriteCount: 0
     spaceCount: 4
     wordCount: 5
     linkCount: 0
-    lineCount: 1
+    lineCount: 3
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -215,7 +215,7 @@ GameObject:
   - component: {fileID: 2372033610815660818}
   - component: {fileID: 3089114566992731142}
   m_Layer: 0
-  m_Name: TextHalfBox1
+  m_Name: PhoneTextBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,3 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b455e14c5980cfd4cb1342fad6a2b121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 1
+  dialogueTextObject: {fileID: 0}
+  dialogueText: {fileID: 0}

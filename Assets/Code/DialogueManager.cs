@@ -15,7 +15,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	public static TextCommands textCommands;
 	public static DialogueBoxScript dialogueBoxScript;
 	public static DialoguePhoneScript dialoguePhoneScript;
-	public static string scriptName;
+	public string scriptName;
 
 	//Text Elements
 	public GameObject dialogueTextObject;
@@ -67,18 +67,21 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
 		dialogueText.text = "";
 
-		/* Commented out for Phone Dialogue System
+		/* Commented out for Phone Dialogue System */
 		historyTextObject = GameObject.FindWithTag("HistoryText");
 		historyText = historyTextObject.GetComponent<TextMeshProUGUI>();
 		historyTextContainer = historyTextObject.GetComponent<RectTransform>();
 		historyTextObject.SetActive(false);
 		historyText.text = "";
-		*/
+		
 
 		autoNext = false;
 
 		string testString = "testScript"; //tempcode
-		LoadScript(testString);
+
+		LoadScript(scriptName);
+
+
 	}
 
 	public void LoadScript (string path){ //loads text script into a queue

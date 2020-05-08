@@ -12,6 +12,11 @@ public class DialoguePhoneScript : MonoBehaviour
     //Prefabs
     //public GameObject phoneMessagePrefab;
 
+    //Resources
+    public Sprite smallBox;
+    public Sprite mediumBox;
+    public Sprite largeBox;
+
     //GameObjects
     public GameObject otherSpawn;
     public GameObject userSpawn;
@@ -24,6 +29,10 @@ public class DialoguePhoneScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        smallBox = Resources.Load<Sprite>("Art/Phone/TextHalfBox1");
+        mediumBox = Resources.Load<Sprite>("Art/Phone/TextHalfBox2");
+        largeBox = Resources.Load<Sprite>("Art/Phone/TextHalfBox3");
+
         userSpawn = gameObject.transform.GetChild(0).gameObject;
         otherSpawn = gameObject.transform.GetChild(1).gameObject;
         messageSpawn = otherSpawn;
@@ -37,11 +46,24 @@ public class DialoguePhoneScript : MonoBehaviour
 
     public void CreateMessage(int sender, string text)
     { 
-        GameObject messageObject = Instantiate(Resources.Load<GameObject>("Resources/Art/Phone/PhoneTextBox"), gameObject.transform);
+        GameObject messageObject = Instantiate(Resources.Load<GameObject>("Art/Phone/PhoneTextBox"), gameObject.transform);
         PhoneMessage phoneMessage = messageObject.GetComponent<PhoneMessage>();
 
         phoneMessage.Initialize(this, sender, text);
         sentMessages.Add(phoneMessage);
+
+        if (phoneMessage.dialogueText.GetPreferredValues().y > 1.0)
+        {
+            phoneMessage.GetComponent<SpriteRenderer>().sprite = largeBox;
+        } 
+        else if (phoneMessage.dialogueText.GetPreferredValues().y > .5)
+        {
+            phoneMessage.GetComponent<SpriteRenderer>().sprite = mediumBox;
+        } 
+        else
+        {
+            phoneMessage.GetComponent<SpriteRenderer>().sprite = smallBox;
+        }
 
         // add message length and default message distance
         Vector3 offset = new Vector3(0, defaultMessageDistance, 0) + new Vector3(0, phoneMessage.dialogueText.GetPreferredValues().y, 0);
