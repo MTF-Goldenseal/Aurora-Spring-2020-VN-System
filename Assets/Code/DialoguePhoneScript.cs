@@ -25,6 +25,7 @@ public class DialoguePhoneScript : MonoBehaviour
 
     //Values
     public float defaultMessageDistance;
+    public bool playSounds = true;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,10 @@ public class DialoguePhoneScript : MonoBehaviour
         Vector3 offset = new Vector3(0, defaultMessageDistance, 0) + new Vector3(0, phoneMessage.dialogueText.GetPreferredValues().y, 0);
 
         ShiftMessages(offset);
-        PlayMessageSound(sender);
+        if (playSounds)
+        {
+            PlayMessageSound(sender);
+        }
     }
 
     public void ShiftMessages(Vector3 offset)

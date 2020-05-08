@@ -13,8 +13,8 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	public static EventManager eventManager;
 	public static DialogueManager dialogueManager;
 	public static TextCommands textCommands;
-	public static DialogueBoxScript dialogueBoxScript;
-	public static DialoguePhoneScript dialoguePhoneScript;
+	public DialogueBoxScript dialogueBoxScript;
+	public DialoguePhoneScript dialoguePhoneScript;
 	public string scriptName;
 
 	//Text Elements
@@ -117,7 +117,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 			finalText = sceneScript[line];
 			lineIndex = line + 1;
 		}
-		currentText += "<color=\"black\">";
+		//currentText += "<color=\"black\">";
 		textIndex = 0;
 	}
 	public int GetTextIndex() {
