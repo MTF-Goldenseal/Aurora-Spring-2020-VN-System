@@ -77,7 +77,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 
 		autoNext = false;
 
-		string testString = "testScript"; //tempcode
+		string testString = "showcase"; //tempcode
 
 		LoadScript(scriptName);
 
@@ -200,7 +200,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		// underlay color
 
 		// this default
-		int sender = 0;
+		int sender = 1;
 
 		dialoguePhoneScript.CreateMessage(sender, finalText);
 

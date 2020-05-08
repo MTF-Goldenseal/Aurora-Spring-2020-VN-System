@@ -54,13 +54,10 @@ public class DialoguePhoneScript : MonoBehaviour
 
         SpriteRenderer messageSprite = phoneMessage.bubbleSprite;
 
-        if (phoneMessage.dialogueText.GetPreferredValues().y > 1.0) // Jank to see if big box needed
+        if (phoneMessage.dialogueText.GetPreferredValues().y > .5) // Jank to see if big box needed
         {
             messageSprite.sprite = largeBox;
-        } 
-        else if (phoneMessage.dialogueText.GetPreferredValues().y > .5) // Jank to see if medium box
-        {
-            messageSprite.sprite = mediumBox;
+            messageSprite.gameObject.transform.localScale = new Vector3(messageSprite.gameObject.transform.localScale.x, phoneMessage.dialogueText.GetPreferredValues().y + 0.1f, messageSprite.gameObject.transform.localScale.z);
         } 
         else // smol box
         {

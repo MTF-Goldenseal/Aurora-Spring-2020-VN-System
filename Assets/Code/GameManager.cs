@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
 
 public class GameManager : MonoBehaviour //Manages general game logic, communication between lower level scripts/systems
 {
@@ -115,11 +116,29 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	}
 	#endregion
 
+	private string ProcessInitialBrackets(string lineToProcess)
+	{
+		string initialBracketsPattern = @"((\[.*?\])+\[.*?\])|(^\[.*?\])";
+		string bracketSeparationPattern = @"\[.*?\]";
+
+		string capturedBrackets = Regex.Match(lineToProcess, initialBracketsPattern).Groups[0].Value;
+
+		foreach (Match match in Regex.Matches(capturedBrackets, bracketSeparationPattern))
+		{
+			textCommands.ProcessEvent(match.Value.Substring(1, match.Value.Length - 2), isStartOfLine: true);
+		}
+
+		dialogueManager.SetTextIndex(dialogueManager.GetTextIndex() + capturedBrackets.Length);
+		return lineToProcess.Substring(capturedBrackets.Length);
+	}
+
 	public void PrepText() {
 		dialogueManager.LoadNextLine();
+
+		dialogueManager.finalText = ProcessInitialBrackets(dialogueManager.finalText);
 		dialogueManager.AddToHistory(dialogueManager.finalText);
 
-		textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
+		//textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
 		StartCoroutine("ParseQueue");
 	}
 	public void AdvanceText() {
@@ -148,10 +167,10 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 				IEnumerator delay = eventManager.Delay((float)eventQueueParamList[count][0]);
 				yield return StartCoroutine(delay);
 			} else {
-				mi = type.GetMethod(eventQueue.Peek().ToString());
+				mi = type.GetMethod(eventQueue.Dequeue().ToString());
 				mi.Invoke(eventManager, eventQueueParamList[count]);
 			}
-			eventQueue.Dequeue();
+			//eventQueue.Dequeue();
 			count++;
         }
 		eventQueueParamList.Clear();
