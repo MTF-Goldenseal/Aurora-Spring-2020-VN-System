@@ -12,9 +12,7 @@ public class KeepItTheFuckUp : MonoBehaviour
 
 
     private void OnDestroy() {
-        {
-            phone.SetActive(true);
-        }
+        phone.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
