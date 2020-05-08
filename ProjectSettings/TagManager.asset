@@ -8,6 +8,7 @@ TagManager:
   - NameText
   - HistoryText
   - VFX
+  - PhoneText
   layers:
   - Default
   - TransparentFX

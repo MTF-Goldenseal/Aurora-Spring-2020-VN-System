@@ -85,7 +85,10 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 				}
 				break;
 			case 1: //Phone System
-				// TODO: Call Next message from Dialogue Manager for PS
+				// TODO: Call Next message from Dialogue Manager for phone system
+				// Currently following existing structure to load and prep text through game manager
+				AdvancePhoneText();
+
 				break;
 			default:
 				Debug.Log("InputSelect failed, controlMode int in GameManager is set to an invalid value: "+mode);
@@ -122,6 +125,15 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void AdvanceText() {
 		PrepText();
 		dialogueManager.StartCoroutine("LetterByLetter");
+	}
+
+	// Following existing paradigm
+	// NOTE: consider shifting responsibility of preparing text and such from GameManager to DialogueManager?
+	// I notice several different links to methods across the dialogueManager and textCommands to handle command inputs and such
+	public void AdvancePhoneText()
+	{
+		PrepText();
+		dialogueManager.NextPhoneMessage();
 	}
 
     IEnumerator ParseQueue(){ //Runs through start-of-line events

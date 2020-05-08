@@ -37,6 +37,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	private GameObject cameraObject;
 	private bool cameraShake = false;
+
     //Values
 	[HideInInspector]
 	public string dialogueBoxState;
@@ -92,11 +93,29 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 	#endregion
 
 	#region PhoneDialogueSystem
-	public void MessageSide(bool rightSide) { //Command for making text messages after the command is called spawn on the left or right
+	public void MessageSender(int sender) { //Command for making text messages after the command is called spawn on the left or right
 		// TODO: Defining Function that specifies side to appear for text
+		// 
+
 	}
 
-	// TODO: Pull the phone down or up 
+	// TODO: Pull the phone down or up - 
+	public void SetPhoneActive(int state)
+	{
+		// ==== Enable ====
+		// Store previous state in GameManager or some other Phone object reference
+		// Set Phone active receiver for events and command calls from TextCommands and DialogueManager
+			// for now thinking just set some boolean flags for processing with phone in TextCommands and DialogueManager
+			// Set Control Mode to 1
+		
+		// ==== Disable ====
+		// Set control state stored in GameManager or elsewhere to active state
+		// Disable phone as active receiver and let Game Manager or Dialogue Manager have a hook to retarget where those go
+			// For now, toggle those boolean flags
+			// Set Control Mode to 0
+	}
+
+
 	// TODO: Set asertation methods at the start of scene through script work to check scene contents
 
 	#endregion

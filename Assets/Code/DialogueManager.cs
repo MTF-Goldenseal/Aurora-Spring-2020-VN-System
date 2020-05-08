@@ -13,7 +13,9 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	public static EventManager eventManager;
 	public static DialogueManager dialogueManager;
 	public static TextCommands textCommands;
-    public static DialogueBoxScript dialogueBoxScript;
+	public static DialogueBoxScript dialogueBoxScript;
+	public static DialoguePhoneScript dialoguePhoneScript;
+	public static string scriptName;
 
 	//Text Elements
 	public GameObject dialogueTextObject;
@@ -59,6 +61,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		eventManager = GetComponent<EventManager>();
 		textCommands = GetComponent<TextCommands>();
         dialogueBoxScript = GameObject.Find("DialogueBox").GetComponent<DialogueBoxScript>();
+		dialoguePhoneScript = GameObject.Find("Phone").GetComponent<DialoguePhoneScript>();
 
 		dialogueTextObject = GameObject.FindWithTag("DialogueText");
 		dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
@@ -185,19 +188,30 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	#endregion
 
 	#region PhoneDialogueSystem
-	public void NextMessage() {
-	// TODO: Everything for new message:
-	// Prefab of texts with lines dumped in
-	// some parameters for left/right align
-	// be able to flip text box sprite
-	// get appropriate size sprite for message
-	// slide up all previous messages / spawn message below and have it lerp up pushing up others
-	// not a lot of rich text - read commands for message calls embedded in script (animation events, etc.)
-	// Change underlay color (existing function) Change text color 
-	// Need to make a second TMP object or material in scene to assign to one persons' message vs other
-	// Thats all for Phone Dialogue
+	public void NextPhoneMessage() {
+		// TODO: Everything for new message:
 
-	// 
+		// final message instance data:
+		// message sender (main: right align, other: left align)
+		// text for message
+		// underlay color
+
+		// this default
+		int sender = 0;
+
+		dialoguePhoneScript.CreateMessage(sender, finalText);
+
+		// Prefab of texts with lines dumped in
+		// some parameters for left/right align +
+		// be able to flip text box sprite +
+		// get appropriate size sprite for message (P)
+		// slide up all previous messages / spawn message below and have it lerp up pushing up others (P)
+		// not a lot of rich text - read commands for message calls embedded in script (animation events, etc.) (GM)
+		// Change underlay color (existing function) Change text color +
+		// Need to make a second TMP object or material in scene to assign to one persons' message vs other
+		// Thats all for Phone Dialogue
+
+		// 
 
 	}
 	#endregion
