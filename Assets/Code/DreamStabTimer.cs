@@ -6,15 +6,17 @@ public class DreamStabTimer : MonoBehaviour
     [SerializeField]
     private float timeToPressInput = 10f;
     private Timer timerToPressInput;
+    private EventManager eventManager;
 
     private void StabThroat()
     {
-        Debug.Log("Stab");
+        eventManager.SetVFX(1, 8);
     }
 
     private void OnEnable()
     {
         Debug.Log("Timer Started");
+        eventManager = GameObject.Find("Overlord").GetComponent<EventManager>();
         timerToPressInput = Timer.Register(timeToPressInput, () => StabThroat());
     }
 
