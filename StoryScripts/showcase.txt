@@ -81,7 +81,7 @@ I knew what I had to do.
 ...and I decided to start from the top.
 [StopMusic]If I just carved it out...I'd be able to breathe again, right?
 I just wanted to breathe
-[ShiftControl i=1][BringUpDialogue b=false][MessageSender i=0][AdvancePhoneText i=7]
+[ControlMode i=1][BringUpDialogue b=false][MessageSender i=0][AdvancePhoneText i=7]
 But then, I felt something appear in my hands out of the thinning air.
 A wave of fear almost buckled my legs...
 I knew what I had to do.

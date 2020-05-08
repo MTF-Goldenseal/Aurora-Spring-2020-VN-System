@@ -139,7 +139,10 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void PrepText() {
 		dialogueManager.LoadNextLine();
 
-		dialogueManager.finalText = ProcessInitialBrackets(dialogueManager.finalText);
+		if (controlMode == 1)
+		{
+			dialogueManager.finalText = ProcessInitialBrackets(dialogueManager.finalText);
+		}
 		dialogueManager.AddToHistory(dialogueManager.finalText);
 
 		//textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
