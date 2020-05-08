@@ -491,6 +491,12 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			yield return null;
 		}
 	}
+
+	public void EnableQTE(string eventName)
+	{
+		GameObject QTEObject = GameObject.Find(eventName);
+		QTEObject.GetComponent<QTE>().StartQTE();
+	}
 	#endregion
 
 	#region Camera

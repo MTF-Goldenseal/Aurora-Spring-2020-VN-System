@@ -77,8 +77,6 @@ public class PhoneMessage : MonoBehaviour
         this.transitioning = true;
         this.transitionFraction = 0.0f;
         this.startPosition = transform.position;
-        Debug.Log(offset);
-        Debug.Log(v);
         this.offset += v;
         this.destinationPosition = spawn.transform.position + offset;
     }

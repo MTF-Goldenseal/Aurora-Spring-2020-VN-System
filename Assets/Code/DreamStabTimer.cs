@@ -11,6 +11,8 @@ public class DreamStabTimer : MonoBehaviour
     private void StabThroat()
     {
         eventManager.SetVFX(1, 8);
+        Debug.Log("Time's up! Stabbing");
+        this.enabled = false;
     }
 
     private void OnEnable()

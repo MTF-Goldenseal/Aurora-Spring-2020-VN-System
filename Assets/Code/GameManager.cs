@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour //Manages general game logic, communication between lower level scripts/systems
 {
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 
 	//Values
 	public int controlMode;
+	public int initialControlMode;
 	[HideInInspector]
 	public bool playerInControl = true;
     [HideInInspector]
@@ -48,7 +50,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
         
         speaker = data.speakerList[0];
 
-		controlMode = 1; //Phone controls
+		controlMode = initialControlMode; //Scene based configuration
 
 		Resources.LoadAsync(""); //Literally just loads every asset on boot. Probably not the best way to go about it, but sucks for now
     }
