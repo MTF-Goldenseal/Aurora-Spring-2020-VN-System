@@ -39,7 +39,6 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	public bool autoNext;
 	public float autoNextDelay;
 	Timer AutoNextTimer;
-	public int currentSender;
 
 	public AudioSource musicSource;
 	public AudioSource voiceSource;

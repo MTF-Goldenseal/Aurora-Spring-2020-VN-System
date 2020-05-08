@@ -1,10 +1,10 @@
-[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0]jules
+[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=ShowcaseScene]jules
 julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
 [MessageSender i=1]Yo sorry, I didnt notice my phone light up earlier today. What's going on bro?
 [MessageSender i=0][SetVFX i=0 i=5]oh thank god you're alive
- kinda just need someone to talk to rn
+kinda just need someone to talk to rn
 [MessageSender i=1]Then call me, you know I don't check my messages like that
 [MessageSender i=0]i would but like
  throat's kinda messed up rn .-.
@@ -56,8 +56,8 @@ being in my room without anyone around
 [MessageSender i=0][SetVFX i=0 i=1]yeah haha
 [SetVFX i=0 i=0]i think i might have an idea why this happened
 [MessageSender i=1]Oh?
-[MessageSender i=0]last night i kinda had this
-[SetVFX i=0 i=5] really bizarre nightmare
+[MessageSender i=0][StopMusic]last night i kinda had this
+[SetVFX i=0 i=5]really bizarre nightmare
 [Voice s=MorganGuardedHigh][SpawnVFX s=ShowcaseDream][PlayMusic s=Paratoxic_Horror]It was really dark and foggy in every direction. I couldn't really see anything around me at all.
 Except for a mirror, sitting right in front of my face.
 [SetVFX i=1 i=1]Looking into it, I saw these...abrasions. All over my body.
@@ -83,7 +83,7 @@ I knew what I had to do.
 I just wanted to breathe
 [MessageSender i=0][SetVFX i=0 i=1]uhh
 hhhhhhhhhhhhhhh
-[SetVFX i=0 i=0]i don't remember what happened after that
+[SetVFX i=0 i=0][PlayMusic s=ShowcaseScene]i don't remember what happened after that
 [MessageSender i=1]Good god, what the hell dude
 [MessageSender i=0][SetVFX i=0 i=6]huh?
 [MessageSender i=1]We were just out getting food, why do you have to phrase it like that?
