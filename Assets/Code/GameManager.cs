@@ -91,6 +91,8 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 				AdvancePhoneText();
 
 				break;
+			case 2:
+				//Block input. Do nothing. 
 			default:
 				Debug.Log("InputSelect failed, controlMode int in GameManager is set to an invalid value: "+mode);
 				break;
