@@ -118,14 +118,14 @@ public class PhoneDialogueManager : MonoBehaviour
 
     private string ProcessInitialBrackets(string lineToProcess)
     {
-        string initialBracketsPattern = @"([.*?])+[.*?]";
-        string bracketSeparationPattern = @"[.*?]";
+        string initialBracketsPattern = @"((\[.*?\])+\[.*?\])|(^\[.*?\])";
+        string bracketSeparationPattern = @"\[.*?\]";
 
         string capturedBrackets = Regex.Match(lineToProcess, initialBracketsPattern).Groups[0].Value;
 
         foreach (Match match in Regex.Matches(capturedBrackets, bracketSeparationPattern))
         {
-            textCommands.ProcessEvent(match.Value, isStartOfLine: true);
+            textCommands.ProcessEvent(match.Value.Substring(1, match.Value.Length - 2), isStartOfLine: true);
         }
 
         return lineToProcess.Substring(capturedBrackets.Length);
