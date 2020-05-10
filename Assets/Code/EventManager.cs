@@ -10,9 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour //Handles events, such as dialogue box changing, nameplate change, visual effects, branching, etc.
 {
-    //Scripts
+	//Scripts
 	public static GameManager gameManager;
-    public static DialogueManager dialogueManager;
+	public static DialogueManager dialogueManager;
 	public static Data data;
 
 	//UI Animations
@@ -37,14 +37,15 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	private GameObject cameraObject;
 	private bool cameraShake = false;
-    //Values
+
+	//Values
 	[HideInInspector]
 	public string dialogueBoxState;
 
-    void Start()
-    {
+	void Start()
+	{
 		gameManager = GetComponent<GameManager>();
-        dialogueManager = GetComponent<DialogueManager>();
+		dialogueManager = GetComponent<DialogueManager>();
 		data = GetComponent<Data>();
 
 		dialogueBox = GameObject.Find("DialogueBox");
@@ -55,10 +56,10 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		cameraObject = GameObject.FindWithTag("MainCamera");
 
 		dialogueBoxState = data.dialogueBoxStateList[0];
-    }
+	}
 
-    #region test cases
-    public void Test()
+	#region test cases
+	public void Test()
 	{
 		Debug.Log("Test() activated.");
 	}
@@ -69,23 +70,88 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		Debug.Log("Test3() activated! string = " + s);
 	}
 	public void Test4(Color c, Vector2 v) {
-		Debug.Log("Test4() activated! color = " + c.ToString() +", Vector2 = " + v.ToString());
+		Debug.Log("Test4() activated! color = " + c.ToString() + ", Vector2 = " + v.ToString());
 	}
-    #endregion
+	#endregion
 
-    #region Dialogue
-    public void TalkSpeed(float speed) { //[TalkSpeed f=0.35]
+	#region Dialogue
+
+	#region MainDialogueSystem
+	public void TalkSpeed(float speed) { //[TalkSpeed f=0.35]
 		dialogueManager.waitTime = speed;
-    }
+	}
 
-    public void PointerMove(Vector3 location) {
-        dialogueBoxScript.PointerMove(location);
-    }
-    public void PointerFlip(bool facingRight) {
-        dialogueBoxScript.PointerFlip(facingRight);
-    }
+	public void PointerMove(Vector3 location) {
+		dialogueBoxScript.PointerMove(location);
+	}
+	public void PointerSet(Vector3 location) {
+		dialogueBoxScript.PointerSet(location);
+	}
+	public void PointerFlip() {
+		dialogueBoxScript.PointerFlip();
+	}
+	#endregion
 
-    public void BoxState(int state) {
+	#region PhoneDialogueSystem
+	public void MessageSender(int sender) { //Command for making text messages after the command is called spawn on the left or right
+		dialogueManager.Sender = (DialogueManager.SenderTypes)sender;
+	}
+
+	// TODO: Pull the phone down or up - 
+	public void SetPhoneActive(int state)
+	{
+		// ==== Enable ====
+		// Store previous state in GameManager or some other Phone object reference
+		// Set Phone active receiver for events and command calls from TextCommands and DialogueManager
+		// for now thinking just set some boolean flags for processing with phone in TextCommands and DialogueManager
+		// Set Control Mode to 1
+
+		// ==== Disable ====
+		// Set control state stored in GameManager or elsewhere to active state
+		// Disable phone as active receiver and let Game Manager or Dialogue Manager have a hook to retarget where those go
+		// For now, toggle those boolean flags
+		// Set Control Mode to 0
+	}
+
+
+	// TODO: Set asertation methods at the start of scene through script work to check scene contents
+
+	#endregion
+
+	public void ControlMode(int mode) {
+		// Toggle between different control modes: 0 - normal, 1 - phone
+		if (gameManager.controlMode != 2)
+		{
+			gameManager.previousControlMode = gameManager.controlMode;
+		}
+		
+		gameManager.controlMode = mode;
+	}
+
+	public void BringUpDialogue(bool enabled)
+	{
+		if (enabled)
+		{
+			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -5);
+		}
+		else
+		{
+			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -30);
+		}
+	}
+
+	public void AdvancePhoneText(int messages)
+	{
+		DialoguePhoneScript phoneScript = dialogueManager.dialoguePhoneScript;
+		phoneScript.playSounds = false;
+		for (int i = 0; i < messages; i++)
+		{
+			gameManager.AdvancePhoneText();
+		}
+		phoneScript.playSounds = true;
+	}
+
+	public void BoxState(int state) {
         if (dialogueBoxScript.GetDialogueAnim() == false) {
             dialogueBoxScript.EnableDialogueAnim();
         }
@@ -98,6 +164,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
         dialogueManager.ChangeUnderlay(c);
     }
 
+	public void NextLine() {
+		gameManager.AdvanceText();
+	}
 	public void AutoNext(float time) {
 		dialogueManager.autoNextDelay = time;
 		if (dialogueManager.autoNext == false) {
@@ -128,6 +197,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		}
 	}
 	public void CharExpress(int index, string spriteName) {
+		if (CharList[index].GetComponent<Animator>().enabled == true) {
+			CharList[index].GetComponent<Animator>().enabled = false;
+		}
 		SpriteRenderer charSR = CharList[index].GetComponent<SpriteRenderer>();
 		charSR.sprite = Resources.Load<Sprite>("Art/Characters/Expressions/" + spriteName);
 	}
@@ -139,8 +211,27 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		CharList[index].GetComponent<CharScript>().SetAnimInt(0);
 		CharList[index].GetComponent<Animator>().enabled = false;
 	}
-	public void CharFadeTo(int index, Color color, float speed) { //[CharFadeTo i=index c=colorvalue with alpha less than 1, f=speed]
-		IEnumerator charFadeToInstance = CharFadeToCoroutine(index, color, speed);
+    public void CharColor(int index, Color endColor) {
+        CharList[index].GetComponent<SpriteRenderer>().color = endColor;
+    }
+	public void CharFadeTo(int index, Color endColor, float duration) { //[CharFadeTo i=index c=colorvalue with alpha less than 1, f=speed]
+        Color midColor = CharList[index].GetComponent<SpriteRenderer>().color;
+        Color diffColor = new Color(endColor.r - midColor.r, endColor.g - midColor.g, endColor.b - midColor.b, endColor.a - midColor.a);
+        Debug.Log("Starting CharFadeTo()");
+        Timer charFadeToTimer = Timer.Register(
+            duration: duration,
+            onUpdate: secondsElapsed => {
+                midColor.r += diffColor.r / (duration * 100 * Time.deltaTime);
+                midColor.g += diffColor.g / (duration * 100 * Time.deltaTime);
+                midColor.b += diffColor.b / (duration * 100 * Time.deltaTime);
+                midColor.a += diffColor.a / (duration * 100 * Time.deltaTime);
+                CharList[index].GetComponent<SpriteRenderer>().color = midColor;
+                Debug.Log("Current color on char for CharFadeTo(): " + midColor);
+            },
+            onComplete: () => CharList[index].GetComponent<SpriteRenderer>().color = endColor
+            );
+
+        /*IEnumerator charFadeToInstance = CharFadeToCoroutine(index, color, speed);
 		StartCoroutine(charFadeToInstance);
 		IEnumerator CharFadeToCoroutine(int i, Color c, float spd) {
 			SpriteRenderer charSR = CharList[i].GetComponent<SpriteRenderer>();
@@ -196,7 +287,8 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 				return true;
 			}
 		}
-	}
+        */
+    }
 	public void CharMove(int index, Vector3 location) {
 		IEnumerator charMoveCoroutine = CharMoveCoroutine(index, location);
 		StartCoroutine(charMoveCoroutine);
@@ -291,6 +383,13 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			yield return null;
 		}
 	}
+
+	public void CharDistortMag(int index, float str) {
+		CharList[index].GetComponent<CharScript>().CharDistortMag(str);
+	}
+	public void CharDistortRate(int index, float rt) {
+		CharList[index].GetComponent<CharScript>().CharDistortRate(rt);
+	}
 	#endregion
 
 	#region Visual Effects
@@ -314,6 +413,10 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			VFXScript VFXScriptInstance = VFXList[VFXList.Count - 1].GetComponent<VFXScript>();
 			VFXScriptInstance.SetIndex(VFXList.Count - 1);
 		}
+	}
+	public void SetVFX(int index, int state) {
+		Animator VFXScriptAnimator = VFXList[index].GetComponent<Animator>();
+		VFXScriptAnimator.SetInteger("animState", state);
 	}
 	public void EndVFX(int index) {
 		if ((index == -1) || index >= VFXList.Count) {
@@ -416,6 +519,12 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			RemoveVFX(flashIndex);
 			yield return null;
 		}
+	}
+
+	public void EnableQTE(string eventName)
+	{
+		GameObject QTEObject = GameObject.Find(eventName);
+		QTEObject.GetComponent<QTE>().StartQTE();
 	}
 	#endregion
 

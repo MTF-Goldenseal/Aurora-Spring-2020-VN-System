@@ -11,8 +11,14 @@ public class DialogueBoxScript : MonoBehaviour {
 
 	//GameObjects
 	public GameObject dialogueBox;
-	public GameObject pointer;
+	public GameObject pointerActive;
+	public GameObject pointerLeft;
+	public GameObject pointerRight;
+	public GameObject pointerBackActive;
+	public GameObject pointerBackLeft;
+	public GameObject pointerBackRight;
 	public GameObject pointerGroup;
+
 	public GameObject boxStatus;
 	public GameObject nameplate;
 
@@ -21,6 +27,9 @@ public class DialogueBoxScript : MonoBehaviour {
 	public Animator pointerAnim;
 	public Animator boxBackAnim;
 	public Animator pointerBackAnim;
+	public Animator pointerBackLeftAnim;
+	public Animator pointerBackRightAnim;
+
 	public Animator boxFillAnim;
 
 	public Animator backFillAnim;
@@ -35,52 +44,100 @@ public class DialogueBoxScript : MonoBehaviour {
 		data = GameObject.Find("Overlord").GetComponent<Data>();
 
 		dialogueBox = this.gameObject;
-		pointer = GameObject.Find("BoxPointer");
+		/* Commented out for the phone system */
+		pointerLeft = GameObject.Find("BoxPointerLeft");
+		pointerRight = GameObject.Find("BoxPointerRight");
+		pointerRight.SetActive(false);
+		pointerActive = pointerLeft;
+		pointerBackLeft = GameObject.Find("PointerBackLeft");
+		pointerBackRight = GameObject.Find("PointerBackRight");
+		pointerBackLeftAnim = GameObject.Find("PointerBackLeft").GetComponent<Animator>();
+		pointerBackRightAnim = GameObject.Find("PointerBackRight").GetComponent<Animator>();
+		pointerBackAnim = pointerBackLeftAnim;
+		pointerBackRight.SetActive(false);
+		pointerBackActive = pointerBackLeft;
 		pointerGroup = GameObject.Find("BoxPointerGroup");
+
 		boxStatus = GameObject.Find("BoxStatus");
 		nameplate = GameObject.Find("Nameplate");
 
 		boxAnim = GetComponent<Animator>();
-		pointerAnim = pointer.GetComponent<Animator>();
+		pointerAnim = pointerActive.GetComponent<Animator>();
 		boxBackAnim = GameObject.Find("BoxBack").GetComponent<Animator>();
-		pointerBackAnim = GameObject.Find("PointerBack").GetComponent<Animator>();
 		boxFillAnim = GameObject.Find("BoxFill").GetComponent<Animator>();
 		nameplateAnim = nameplate.GetComponent<Animator>();
-		boxStatusAnim = boxStatus.GetComponent<Animator>(); 
+		boxStatusAnim = boxStatus.GetComponent<Animator>();
+		
 }
 	
 	void Update() {
 		
 	}
 
-	public void PointerMove(Vector3 location) { //note: this seems to overshoot the final location by a little bit
+    #region Pointer Control
+    public void PointerMove(Vector3 location) { //note: this seems to overshoot the final location by a little bit, try converting to Lerping?
         Vector3 dialogueBoxPosition = dialogueBox.GetComponent<Transform>().position;
-        location += dialogueBoxPosition;
+        //location += dialogueBoxPosition;
 		IEnumerator movePointerCoroutine = MovePointerCoroutine(location);
 		StartCoroutine(movePointerCoroutine);
 		IEnumerator MovePointerCoroutine(Vector3 l) {
 			Transform pointerTransform = pointerGroup.transform;
             Debug.Log("Moving from Location: [" + pointerTransform.position + "] to Destination: [" + location + "]");
-            float step;
-			while (Vector3.Distance(pointerTransform.position, l) > 0.001f) {
-				step = Vector3.Distance(pointerTransform.position, l)*0.35f;
+            //float step;
+			while (Vector3.Distance(pointerTransform.localPosition, l) > 0.01f) {
+				/*step = Vector3.Distance(pointerTransform.position, l)*0.35f;
 				Debug.Log("Stepping a distance of ["+step+"]");
 				pointerTransform.position = Vector3.MoveTowards(pointerTransform.position, l, step);
-                Debug.Log("Current position: ["+pointerTransform.position+"]");
+				Debug.Log("Current position: [" + pointerTransform.position + "]");*/
+				Debug.Log("AAA");
+				pointerTransform.localPosition = Vector3.Lerp(pointerTransform.localPosition, l, 0.3f);
 				yield return new WaitForSeconds(0.025f);
 			}
-			pointerTransform.position = l;
+			pointerTransform.localPosition = l;
+			Debug.Log("<color=#ff0000>"+pointerTransform.position+"</color>");
 			yield return null;
 		}
 	}
 	public void PointerSet(Vector3 location) {
 		pointerGroup.transform.position = location;
 	}
-	public void PointerFlip(bool facingRight) {
-		pointerGroup.GetComponent<SpriteRenderer>().flipX = !facingRight;
-	}
+	public void PointerFlip() {
+		GameObject pFlipBefore;
+		GameObject pFlipBeforeBack;
+		GameObject pFlipAfter;
+		GameObject pFlipAfterBack;
+		if (pointerActive == pointerLeft) {
+			pFlipBefore = pointerLeft;
+			pFlipBeforeBack = pointerBackLeft;
+			pFlipAfter = pointerRight;
+			pFlipAfterBack = pointerBackRight;
+		} else {
+			pFlipBefore = pointerRight;
+			pFlipBeforeBack = pointerBackRight;
+			pFlipAfter = pointerLeft;
+			pFlipAfterBack = pointerBackLeft;
+		}
+		pFlipAfter.SetActive(true);
+		pFlipAfterBack.SetActive(true);
+		int savedAnimState = pointerAnim.GetInteger("animState");
+		bool savedIsTalkingState = pointerAnim.GetBool("isTalking");
+		pointerActive = pFlipAfter;
+		pointerBackActive = pFlipAfterBack;
+		pointerAnim = pFlipAfter.GetComponent<Animator>();
+		pointerBackAnim = pFlipAfterBack.GetComponent<Animator>();
 
-	public bool GetDialogueAnim() {
+		pointerAnim.SetInteger("animState", savedAnimState);
+		pointerBackAnim.SetInteger("animState", savedAnimState);
+		pointerAnim.SetBool("isTalking", savedIsTalkingState);
+		pointerBackAnim.SetBool("isTalking", savedIsTalkingState);
+
+		pFlipBefore.SetActive(false);
+		pFlipBeforeBack.SetActive(false);
+	}
+    #endregion
+
+    #region Animation State Control
+    public bool GetDialogueAnim() {
 		return this.GetComponent<Animator>().enabled;
 	}
 	public void EnableDialogueAnim() { //no bool parameter to support animator events in Unity's Animator Window
@@ -131,5 +188,13 @@ public class DialogueBoxScript : MonoBehaviour {
 		boxFillAnim.SetBool("isTalking", boolean);
 
 		nameplateAnim.SetBool("isTalking", boolean);
+	}
+	#endregion
+
+	public void NameDistortMag (float strength) {
+		nameplate.GetComponent<SpriteRenderer>().material.SetFloat("Magnitude", strength);
+	}
+	public void NameDistortRate (float rate) {
+		nameplate.GetComponent<DistortHelper>().DistortionRate = rate;
 	}
 }

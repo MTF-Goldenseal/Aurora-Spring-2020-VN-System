@@ -1,15 +1,21 @@
-[NameState i=27665][Voice s=GenericVoice2][SpawnChar s=Chen s=chenSmile v3=-11,0,9.3][CharMove i=0 v3=-4.7,0,9.3][PointerMove v3=-3.58,4.2,-1][BoxState i=1]Awriiiiight, [Delay f=0.3]Checkpoint 1,[Delay f=0.3] let's get started!
-[CharExpress i=0 s=chenNeutral][BoxState i=2][TalkSpeed f=0.2]. . .
-[CharExpress i=0 s=chenStressedSmile][BoxState i=2]. . .
-[CharExpress i=0 s=chenStressedSmile2][BoxState i=2]. . .
-[BoxState i=2]I uh...[TalkSpeed f=0.023]I don't really have much to show. [Delay f=1]Um.
-[CharExpress i=0 s=chenSerious2][BoxState i=2]Since this is kind of my first really big programming project, I've been having to\nspend a lot of time reworking stuff that was broken or not very future proof.
-[CharExpress i=0 s=chenSmile][BoxState i=2][CharMove i=0 v3=-3,0,9.3][PointerMove v3=-1.6,4.2,-1]For example, this cool scrolling background on the dialogue bubble?
-[CharExpress i=0 s=chenUnamused][BoxState i=2][CharShakeOnce i=0 f=0.3]Breaks if you try to change the alpha with animations.
-[CharExpress i=0 s=chenStressedSmile][BoxState i=2][CharMove i=0 v3=-4.7,0,9.3][PointerMove v3=-3.58,4.2,-1]I could probably fix this by making a simple shader and adjusting that over\ntime to coordinate with the dialogue box animations...
-[CharExpress i=0 s=chenUnamused][BoxState i=2]But to do that, I need to change out pretty much all my code involving timing.\nUnity really doesn't offer great tools for that out of the box, and I'm still\nlearning how to use this UnityTimer code I found on Github.
-[CharExpress i=0 s=chenThoughtful][BoxState i=2]I've never touched shader programming, either. There's a great video on it in\nthe discord, but it's five hours long and I've made it maybe twenty minutes in.
-[CharExpress i=0 s=chenSmile][BoxState i=2][UnderColor c=0.69,0,1,0.75]Oh,[Delay f=0.2] and I can change the color of the text underlay now!
-[CharExpress i=0 s=chenStressedSmile][BoxState i=2][TalkSpeed f=0.2][UnderColor c=0,0,0,0.5]. . .[TalkSpeed f=0.023][Delay f=1]yeah that's about all that's new
-[CharExpress i=0 s=chenUnamused][BoxState i=2][CharMove i=0 v3=-6.45,0,9.3][PointerMove v3=-5.5,4.2,-1]Honestly[TalkSpeed f=0.1]...[TalkSpeed f=0.023]there really isn't much new since two weeks ago. I should probably\njust take a strike for this checkpoint.
-[CharExpress i=0 s=chenSerious]Especially since I have nothing to show for art and story[SpawnVFX s=checkpoint1Bugout][SFX s=checkpoint1Bugout][RemoveChar i=-1][BoxState i=0][BG s=BlackBackground][Delay f=7][SpawnVFX s=PrimLogo1][Delay f=5][SpawnVFX s=ParatoxicLogo1][Delay f=5.5][ForceQuit]
+Hey Jules
+Hey, Morgan!
+Whatcha doing?
+Not much, just sending really long text messages to those that I think are close friends. <3 :) 
+Oh wow, thank you!
+Aaah!\nAaah!\nAaah!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Oh wow, thank you!
+Yeet~
