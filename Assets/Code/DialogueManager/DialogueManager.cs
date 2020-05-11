@@ -7,13 +7,15 @@ using UnityEngine;
 
 namespace Paratoxic.DialogueManager
 {
-    public class DialogueManager : MonoBehaviour
+    public abstract class DialogueManager : MonoBehaviour
     {
         private StreamReader script;
         private TextCommands textCommands;
 
         private List<long> numOfBytesToOffsetToSpecificLine;
         private int currentLineNumber = 0;
+        public bool IsDelaying { get; set; }
+        protected float secondsOfDelayLeft = 0f;
 
         // Start is called before the first frame update
         void Start()
@@ -28,7 +30,7 @@ namespace Paratoxic.DialogueManager
         
         }
 
-        private void LoadScript(string fileName)
+        protected void LoadScript(string fileName)
         {
             script = new StreamReader($"StoryScripts\\{fileName}.txt");
             string line;
@@ -71,26 +73,12 @@ namespace Paratoxic.DialogueManager
             script.BaseStream.Position = numOfBytesToOffsetToSpecificLine[currentLineNumber];
             Debug.Log($"Reading line number {currentLineNumber}");
             string line = script.ReadLine();
-            DisplayLine($"<color=\"black\">{line}");
+            DisplayLine(line);
         }
 
-        private void DisplayLine(string line)
-        {
-            PlayVoiceClip();
-            StartCoroutine(WriteTextOut(line));
-        }
+        protected abstract void DisplayLine(string line);
 
-        private IEnumerator WriteTextOut(string line)
-        {
-            string parsedLine = ProcessInitialBrackets(line);
-
-            for(int i = 0; i < parsedLine.Length; i++)
-            {
-
-            }
-        }
-
-        private string ProcessInitialBrackets(string line)
+        protected string ProcessInitialBrackets(string line)
         {
             string initialBracketsPattern = @"((\[.*?\])+\[.*?\])|((?!\<.*\>)\[.*?\])";
             string bracketSeparationPattern = @"\[.*?\]";
@@ -102,9 +90,25 @@ namespace Paratoxic.DialogueManager
                 textCommands.ProcessEvent(match.Value.Substring(1, match.Value.Length - 2), isStartOfLine: true);
             }
 
-            string initialTags =  line.LastIndexOf('>');
-
-            return line.Substring() + line.Substring()
+            return line.Substring(capturedBrackets.Length);
         }
+
+        protected string ProcessSingleBracket(string lineToProcess)
+        {
+            string bracketSeparationPattern = @"\[.*?\]";
+            Match match = Regex.Match(lineToProcess, bracketSeparationPattern);
+            string bracket = match.Value;
+            textCommands.ProcessEvent(bracket.Substring(1, bracket.Length - 2), isStartOfLine: false);
+
+            return lineToProcess.Remove(match.Index, bracket.Length);
+        }
+
+        public void DelayTextForSeconds(float secondsToDelay)
+        {
+            IsDelaying = true;
+            secondsOfDelayLeft = secondsToDelay;
+        }
+
+        protected abstract void ResetVariables();
     }
 }
