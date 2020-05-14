@@ -81,8 +81,11 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
     public void PointerMove(Vector3 location) {
         dialogueBoxScript.PointerMove(location);
     }
-    public void PointerFlip(bool facingRight) {
-        dialogueBoxScript.PointerFlip(facingRight);
+	public void PointerSet(Vector3 location) {
+		dialogueBoxScript.PointerSet(location);
+	}
+    public void PointerFlip() {
+        dialogueBoxScript.PointerFlip();
     }
 
     public void BoxState(int state) {
@@ -98,6 +101,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
         dialogueManager.ChangeUnderlay(c);
     }
 
+	public void NextLine() {
+		gameManager.AdvanceText();
+	}
 	public void AutoNext(float time) {
 		dialogueManager.autoNextDelay = time;
 		if (dialogueManager.autoNext == false) {
@@ -128,6 +134,9 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		}
 	}
 	public void CharExpress(int index, string spriteName) {
+		if (CharList[index].GetComponent<Animator>().enabled == true) {
+			CharList[index].GetComponent<Animator>().enabled = false;
+		}
 		SpriteRenderer charSR = CharList[index].GetComponent<SpriteRenderer>();
 		charSR.sprite = Resources.Load<Sprite>("Art/Characters/Expressions/" + spriteName);
 	}
@@ -139,8 +148,27 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		CharList[index].GetComponent<CharScript>().SetAnimInt(0);
 		CharList[index].GetComponent<Animator>().enabled = false;
 	}
-	public void CharFadeTo(int index, Color color, float speed) { //[CharFadeTo i=index c=colorvalue with alpha less than 1, f=speed]
-		IEnumerator charFadeToInstance = CharFadeToCoroutine(index, color, speed);
+    public void CharColor(int index, Color endColor) {
+        CharList[index].GetComponent<SpriteRenderer>().color = endColor;
+    }
+	public void CharFadeTo(int index, Color endColor, float duration) { //[CharFadeTo i=index c=colorvalue with alpha less than 1, f=speed]
+        Color midColor = CharList[index].GetComponent<SpriteRenderer>().color;
+        Color diffColor = new Color(endColor.r - midColor.r, endColor.g - midColor.g, endColor.b - midColor.b, endColor.a - midColor.a);
+        Debug.Log("Starting CharFadeTo()");
+        Timer charFadeToTimer = Timer.Register(
+            duration: duration,
+            onUpdate: secondsElapsed => {
+                midColor.r += diffColor.r / (duration * 100 * Time.deltaTime);
+                midColor.g += diffColor.g / (duration * 100 * Time.deltaTime);
+                midColor.b += diffColor.b / (duration * 100 * Time.deltaTime);
+                midColor.a += diffColor.a / (duration * 100 * Time.deltaTime);
+                CharList[index].GetComponent<SpriteRenderer>().color = midColor;
+                Debug.Log("Current color on char for CharFadeTo(): " + midColor);
+            },
+            onComplete: () => CharList[index].GetComponent<SpriteRenderer>().color = endColor
+            );
+
+        /*IEnumerator charFadeToInstance = CharFadeToCoroutine(index, color, speed);
 		StartCoroutine(charFadeToInstance);
 		IEnumerator CharFadeToCoroutine(int i, Color c, float spd) {
 			SpriteRenderer charSR = CharList[i].GetComponent<SpriteRenderer>();
@@ -196,7 +224,8 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 				return true;
 			}
 		}
-	}
+        */
+    }
 	public void CharMove(int index, Vector3 location) {
 		IEnumerator charMoveCoroutine = CharMoveCoroutine(index, location);
 		StartCoroutine(charMoveCoroutine);
@@ -290,6 +319,13 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			charTransform.position = charShakeBackup;
 			yield return null;
 		}
+	}
+
+	public void CharDistortMag(int index, float str) {
+		CharList[index].GetComponent<CharScript>().CharDistortMag(str);
+	}
+	public void CharDistortRate(int index, float rt) {
+		CharList[index].GetComponent<CharScript>().CharDistortRate(rt);
 	}
 	#endregion
 
