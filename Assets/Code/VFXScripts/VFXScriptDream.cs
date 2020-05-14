@@ -23,6 +23,10 @@ public class VFXScriptDream : VFXScript {
         this.GetComponent<SpriteRenderer>().material.SetFloat("_ColorProbability", level);
     }
 
+    public void ControlModeToPhone() {
+        eventManager.ControlMode(1);
+    }
+
     public void PlaySound() {
         if (audioPlayer.isPlaying == false)
             audioPlayer.Play();
