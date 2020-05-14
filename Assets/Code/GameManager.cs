@@ -3,6 +3,8 @@ using System.Reflection;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Text.RegularExpressions;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour //Manages general game logic, communication between lower level scripts/systems
 {
@@ -14,6 +16,9 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public static Data data;
 
 	//Values
+	public int controlMode;
+	public int previousControlMode;
+	public int initialControlMode;
 	[HideInInspector]
 	public bool playerInControl = true;
     [HideInInspector]
@@ -46,7 +51,9 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
         
         speaker = data.speakerList[0];
 
-		Resources.LoadAsync("");
+		controlMode = initialControlMode; //Scene based configuration
+
+		Resources.LoadAsync(""); //Literally just loads every asset on boot. Probably not the best way to go about it, but sucks for now
     }
 
     // Update is called once per frame
@@ -54,34 +61,105 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
     {
 		if (playerInControl == true){
 			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)){
-				if (playingDialogue == false){
-					AdvanceText();
-				} else { //Same functionality as left control/right click while dialogue is playing.
-					dialogueManager.DisplayAllText();
-			    }
+				InputSelect(controlMode);
 			}
 			if (/*Input.GetKeyDown(KeyCode.LeftControl) || */Input.GetKeyDown(KeyCode.Mouse1)){ //Skips text playback.
-				if (dialogueManager.finalText == ""){
-					PrepText();
-				}
-				dialogueManager.DisplayAllText();
+				InputBack(controlMode);
 			}
+			/* Commented out. History box incomplete atm.
 			if (Input.GetKeyDown(KeyCode.C)){ // Open History
 				dialogueManager.HistoryBox();
 			}
+			*/
 		}
     }
 
+	#region Input
+
+	// TODO: QTE - Once VFX is done for animation (after QTE), changes back to phone 
+	// TODO: QTE - Command in Script - Tells Dialoge Manager/Game Manager to prep extended messages (etiher to a point in the script or a predetermined number set by command
+
+	public void InputSelect(int mode) {
+		switch (mode) {
+			case 0: //Normal Dialogue
+				if (playingDialogue == false) {
+					AdvanceText();
+				} else { //Same functionality as left control/right click while dialogue is playing.
+					dialogueManager.DisplayAllText();
+				}
+				break;
+			case 1: //Phone System
+				// TODO: Call Next message from Dialogue Manager for phone system
+				// Currently following existing structure to load and prep text through game manager
+				AdvancePhoneText();
+				break;
+			case 2:
+				//Block input. Do nothing. 
+			default:
+				Debug.Log("InputSelect failed, controlMode int in GameManager is set to an invalid value: "+mode);
+				break;
+		}
+	}
+
+	public void InputBack(int mode) {
+		switch (mode) {
+			case 0: //Normal Dialogue
+				if (dialogueManager.finalText == "") {
+					PrepText();
+				}
+				dialogueManager.DisplayAllText();
+				break;
+			case 1: //Phone System
+				// Process input anyways.
+				InputSelect(controlMode);
+				break;
+			default:
+				Debug.Log("InputSelect failed, controlMode int in GameManager is set to an invalid value: " + mode);
+				break;
+		}
+	}
+	#endregion
+
+	private string ProcessInitialBrackets(string lineToProcess)
+	{
+		string initialBracketsPattern = @"((\[.*?\])+\[.*?\])|(^\[.*?\])";
+		string bracketSeparationPattern = @"\[.*?\]";
+
+		string capturedBrackets = Regex.Match(lineToProcess, initialBracketsPattern).Groups[0].Value;
+
+		foreach (Match match in Regex.Matches(capturedBrackets, bracketSeparationPattern))
+		{
+			textCommands.ProcessEvent(match.Value.Substring(1, match.Value.Length - 2), isStartOfLine: true);
+		}
+
+		dialogueManager.SetTextIndex(dialogueManager.GetTextIndex() + capturedBrackets.Length);
+		return lineToProcess.Substring(capturedBrackets.Length);
+	}
+
 	public void PrepText() {
 		dialogueManager.LoadNextLine();
+
+		if (controlMode == 1)
+		{
+			dialogueManager.finalText = ProcessInitialBrackets(dialogueManager.finalText);
+		}
 		dialogueManager.AddToHistory(dialogueManager.finalText);
 
-		textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
+		//textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
 		StartCoroutine("ParseQueue");
 	}
 	public void AdvanceText() {
 		PrepText();
 		dialogueManager.StartCoroutine("LetterByLetter");
+	}
+
+	// Following existing paradigm
+	// NOTE: consider shifting responsibility of preparing text and such from GameManager to DialogueManager?
+	// I notice several different links to methods across the dialogueManager and textCommands to handle command inputs and such
+	public void AdvancePhoneText()
+	{
+		PrepText();
+		dialogueManager.NextPhoneMessage();
 	}
 
     IEnumerator ParseQueue(){ //Runs through start-of-line events
@@ -96,10 +174,10 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 				IEnumerator delay = eventManager.Delay((float)eventQueueParamList[count][0]);
 				yield return StartCoroutine(delay);
 			} else {
-				mi = type.GetMethod(eventQueue.Peek().ToString());
+				mi = type.GetMethod(eventQueue.Dequeue().ToString());
 				mi.Invoke(eventManager, eventQueueParamList[count]);
 			}
-			eventQueue.Dequeue();
+			//eventQueue.Dequeue();
 			count++;
         }
 		eventQueueParamList.Clear();
@@ -112,5 +190,13 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	}
 	bool getPlayerControl () {
 		return playerInControl;
+	}
+
+	void SetControlMode (int mode) {
+
+		controlMode = mode;
+	}
+	int getControlMode () {
+		return controlMode;
 	}
 }

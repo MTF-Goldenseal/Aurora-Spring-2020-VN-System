@@ -921,7 +921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: -200.06029}
+  m_AnchoredPosition: {x: -370, y: -200.01707}
   m_SizeDelta: {x: 760, y: 400}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &898207245
@@ -2326,7 +2326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9549c58b6c339c744978405999b53739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameTextObject: {fileID: 0}
+  scriptName: testScriptBackup
   dialogueTextObject: {fileID: 0}
   historyTextObject: {fileID: 0}
   dialogueText: {fileID: 0}
@@ -2501,6 +2501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ff75a7d4ad4e72418fc966fb53b6767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlMode: 0
   playerInControl: 1
   playerInChoice: 0
   playingDialogue: 0

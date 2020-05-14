@@ -44,6 +44,7 @@ public class DialogueBoxScript : MonoBehaviour {
 		data = GameObject.Find("Overlord").GetComponent<Data>();
 
 		dialogueBox = this.gameObject;
+		/* Commented out for the phone system */
 		pointerLeft = GameObject.Find("BoxPointerLeft");
 		pointerRight = GameObject.Find("BoxPointerRight");
 		pointerRight.SetActive(false);
@@ -65,7 +66,8 @@ public class DialogueBoxScript : MonoBehaviour {
 		boxBackAnim = GameObject.Find("BoxBack").GetComponent<Animator>();
 		boxFillAnim = GameObject.Find("BoxFill").GetComponent<Animator>();
 		nameplateAnim = nameplate.GetComponent<Animator>();
-		boxStatusAnim = boxStatus.GetComponent<Animator>(); 
+		boxStatusAnim = boxStatus.GetComponent<Animator>();
+		
 }
 	
 	void Update() {
@@ -87,6 +89,7 @@ public class DialogueBoxScript : MonoBehaviour {
 				Debug.Log("Stepping a distance of ["+step+"]");
 				pointerTransform.position = Vector3.MoveTowards(pointerTransform.position, l, step);
 				Debug.Log("Current position: [" + pointerTransform.position + "]");*/
+				Debug.Log("AAA");
 				pointerTransform.localPosition = Vector3.Lerp(pointerTransform.localPosition, l, 0.3f);
 				yield return new WaitForSeconds(0.025f);
 			}

@@ -10,9 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour //Handles events, such as dialogue box changing, nameplate change, visual effects, branching, etc.
 {
-    //Scripts
+	//Scripts
 	public static GameManager gameManager;
-    public static DialogueManager dialogueManager;
+	public static DialogueManager dialogueManager;
 	public static Data data;
 
 	//UI Animations
@@ -37,14 +37,15 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	private GameObject cameraObject;
 	private bool cameraShake = false;
-    //Values
+
+	//Values
 	[HideInInspector]
 	public string dialogueBoxState;
 
-    void Start()
-    {
+	void Start()
+	{
 		gameManager = GetComponent<GameManager>();
-        dialogueManager = GetComponent<DialogueManager>();
+		dialogueManager = GetComponent<DialogueManager>();
 		data = GetComponent<Data>();
 
 		dialogueBox = GameObject.Find("DialogueBox");
@@ -55,10 +56,10 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		cameraObject = GameObject.FindWithTag("MainCamera");
 
 		dialogueBoxState = data.dialogueBoxStateList[0];
-    }
+	}
 
-    #region test cases
-    public void Test()
+	#region test cases
+	public void Test()
 	{
 		Debug.Log("Test() activated.");
 	}
@@ -69,26 +70,88 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		Debug.Log("Test3() activated! string = " + s);
 	}
 	public void Test4(Color c, Vector2 v) {
-		Debug.Log("Test4() activated! color = " + c.ToString() +", Vector2 = " + v.ToString());
+		Debug.Log("Test4() activated! color = " + c.ToString() + ", Vector2 = " + v.ToString());
 	}
-    #endregion
+	#endregion
 
-    #region Dialogue
-    public void TalkSpeed(float speed) { //[TalkSpeed f=0.35]
+	#region Dialogue
+
+	#region MainDialogueSystem
+	public void TalkSpeed(float speed) { //[TalkSpeed f=0.35]
 		dialogueManager.waitTime = speed;
-    }
+	}
 
-    public void PointerMove(Vector3 location) {
-        dialogueBoxScript.PointerMove(location);
-    }
+	public void PointerMove(Vector3 location) {
+		dialogueBoxScript.PointerMove(location);
+	}
 	public void PointerSet(Vector3 location) {
 		dialogueBoxScript.PointerSet(location);
 	}
-    public void PointerFlip() {
-        dialogueBoxScript.PointerFlip();
-    }
+	public void PointerFlip() {
+		dialogueBoxScript.PointerFlip();
+	}
+	#endregion
 
-    public void BoxState(int state) {
+	#region PhoneDialogueSystem
+	public void MessageSender(int sender) { //Command for making text messages after the command is called spawn on the left or right
+		dialogueManager.Sender = (DialogueManager.SenderTypes)sender;
+	}
+
+	// TODO: Pull the phone down or up - 
+	public void SetPhoneActive(int state)
+	{
+		// ==== Enable ====
+		// Store previous state in GameManager or some other Phone object reference
+		// Set Phone active receiver for events and command calls from TextCommands and DialogueManager
+		// for now thinking just set some boolean flags for processing with phone in TextCommands and DialogueManager
+		// Set Control Mode to 1
+
+		// ==== Disable ====
+		// Set control state stored in GameManager or elsewhere to active state
+		// Disable phone as active receiver and let Game Manager or Dialogue Manager have a hook to retarget where those go
+		// For now, toggle those boolean flags
+		// Set Control Mode to 0
+	}
+
+
+	// TODO: Set asertation methods at the start of scene through script work to check scene contents
+
+	#endregion
+
+	public void ControlMode(int mode) {
+		// Toggle between different control modes: 0 - normal, 1 - phone
+		if (gameManager.controlMode != 2)
+		{
+			gameManager.previousControlMode = gameManager.controlMode;
+		}
+		
+		gameManager.controlMode = mode;
+	}
+
+	public void BringUpDialogue(bool enabled)
+	{
+		if (enabled)
+		{
+			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -5);
+		}
+		else
+		{
+			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -30);
+		}
+	}
+
+	public void AdvancePhoneText(int messages)
+	{
+		DialoguePhoneScript phoneScript = dialogueManager.dialoguePhoneScript;
+		phoneScript.playSounds = false;
+		for (int i = 0; i < messages; i++)
+		{
+			gameManager.AdvancePhoneText();
+		}
+		phoneScript.playSounds = true;
+	}
+
+	public void BoxState(int state) {
         if (dialogueBoxScript.GetDialogueAnim() == false) {
             dialogueBoxScript.EnableDialogueAnim();
         }
@@ -351,6 +414,10 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			VFXScriptInstance.SetIndex(VFXList.Count - 1);
 		}
 	}
+	public void SetVFX(int index, int state) {
+		Animator VFXScriptAnimator = VFXList[index].GetComponent<Animator>();
+		VFXScriptAnimator.SetInteger("animState", state);
+	}
 	public void EndVFX(int index) {
 		if ((index == -1) || index >= VFXList.Count) {
 			if ((VFXList[VFXList.Count-1].GetComponent<Animator>() != null)) {
@@ -452,6 +519,12 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 			RemoveVFX(flashIndex);
 			yield return null;
 		}
+	}
+
+	public void EnableQTE(string eventName)
+	{
+		GameObject QTEObject = GameObject.Find(eventName);
+		QTEObject.GetComponent<QTE>().StartQTE();
 	}
 	#endregion
 
