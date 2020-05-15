@@ -11,6 +11,7 @@ public class DreamStabTimer : MonoBehaviour
     private void StabThroat()
     {
         eventManager.SetVFX(1, 8);
+        eventManager.BringUpDialogue(false);
         Debug.Log("Time's up! Stabbing");
         // TODO: Turn off dialogie after stabbing (that person)
         this.enabled = false;

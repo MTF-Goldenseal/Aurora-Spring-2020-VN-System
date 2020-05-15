@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 6948102418198504697}
   - component: {fileID: 8603195665447746144}
   - component: {fileID: 4624003430497112206}
-  - component: {fileID: 2938207884366512514}
-  - component: {fileID: 114713223302436354}
+  - component: {fileID: 6694728425804256410}
   m_Layer: 0
   m_Name: ShowcaseContentWarning
   m_TagString: Untagged
@@ -101,7 +100,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2938207884366512514
+--- !u!114 &6694728425804256410
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,19 +109,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 3422000770956182110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67827a7aad6737b4faa0586442a0f8ba, type: 3}
+  m_Script: {fileID: 11500000, guid: db8b4fefee7845949ba171bc1ef2630e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114713223302436354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3422000770956182110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e414939851a3ee74992785a5130ad068, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlModeId: 2

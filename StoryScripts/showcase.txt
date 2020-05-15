@@ -1,4 +1,4 @@
-[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=ShowcaseSceneMusic]jules
+[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=ShowcaseSceneMusic][BringUpDialogue b=false]jules
 julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
@@ -59,7 +59,7 @@ being in my room without anyone around
 [SetVFX i=0 i=0]i think i might have an idea why this happened
 [MessageSender i=1]Oh?
 [MessageSender i=0][StopMusic]last night i kinda had this
-[SetVFX i=0 i=5][SpawnVFX s=ShowcaseDream][PlayMusic s=Paratoxic_Horror][ControlMode i=0][BringUpDialogue b=true]really bizarre nightmare
+[SetVFX i=0 i=5][SpawnVFX s=ShowcaseDream][PlayMusic s=Paratoxic_Horror][ControlMode i=0][BringUpDialogue b=true][BlockInputWhilePrinting b=true]really bizarre nightmare
 It was really dark and foggy in every direction. I couldn't really see anything around me at all.
 Except for a mirror, sitting right in front of my face.
 [SetVFX i=1 i=1]Looking into it, I saw these...abrasions. All over my body.
@@ -82,10 +82,11 @@ I knew what I had to do.
 [SetVFX i=1 i=7]It felt like I was on the verge of collapsing as I lifted the dead weight of my arm up, the scalpel firmly grasped between two fingers...
 ...and I decided to start from the top.
 [StopMusic]If I just carved it out...I'd be able to breathe again, right?
+I just wanted to breathe
 [EnableQTE s=QTEThroat]I just wanted to breathe
-[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][ControlMode i=1] 
-[ControlMode i=1]uhh
-[ControlMode i=1]hhhhhhhhhhhhhhh
+[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][ControlMode i=1][BlockInputWhilePrinting b=false] 
+uhh
+hhhhhhhhhhhhhhh
 [SetVFX i=0 i=0][PlayMusic s=SoftPianoBeat]i don't remember what happened after that
 [MessageSender i=1]Good god, what the hell dude
 [MessageSender i=0][SetVFX i=0 i=6]huh?

@@ -17,10 +17,11 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 
 	//Values
 	public int controlMode;
-	public int previousControlMode;
 	public int initialControlMode;
 	[HideInInspector]
 	public bool playerInControl = true;
+	[HideInInspector]
+	public bool blockInputWhilePrinting = false;
     [HideInInspector]
 	public bool playerInChoice = false;
 	[HideInInspector]
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
         
         speaker = data.speakerList[0];
 
-		controlMode = initialControlMode; //Scene based configuration
+		controlMode = initialControlMode;
 
 		Resources.LoadAsync(""); //Literally just loads every asset on boot. Probably not the best way to go about it, but sucks for now
     }
@@ -62,8 +63,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		if (playerInControl == true){
 			if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Mouse0)){
 				InputSelect(controlMode);
-			}
-			if (/*Input.GetKeyDown(KeyCode.LeftControl) || */Input.GetKeyDown(KeyCode.Mouse1)){ //Skips text playback.
+			} else if (/*Input.GetKeyDown(KeyCode.LeftControl) || */Input.GetKeyDown(KeyCode.Mouse1)){ //Skips text playback.
 				InputBack(controlMode);
 			}
 			/* Commented out. History box incomplete atm.
@@ -82,19 +82,21 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void InputSelect(int mode) {
 		switch (mode) {
 			case 0: //Normal Dialogue
-				if (playingDialogue == false) {
+				if (playingDialogue == false)
+				{
 					AdvanceText();
-				} else { //Same functionality as left control/right click while dialogue is playing.
-					dialogueManager.DisplayAllText();
+				}
+				else
+				{ //Same functionality as left control/right click while dialogue is playing.
+					if (!blockInputWhilePrinting)
+					{
+						dialogueManager.DisplayAllText();
+					}
 				}
 				break;
 			case 1: //Phone System
-				// TODO: Call Next message from Dialogue Manager for phone system
-				// Currently following existing structure to load and prep text through game manager
 				AdvancePhoneText();
 				break;
-			case 2:
-				//Block input. Do nothing. 
 			default:
 				Debug.Log("InputSelect failed, controlMode int in GameManager is set to an invalid value: "+mode);
 				break;
@@ -104,10 +106,14 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void InputBack(int mode) {
 		switch (mode) {
 			case 0: //Normal Dialogue
-				if (dialogueManager.finalText == "") {
-					PrepText();
+				if (!blockInputWhilePrinting)
+				{
+					if (dialogueManager.finalText == "")
+					{
+						PrepText();
+					}
+					dialogueManager.DisplayAllText();
 				}
-				dialogueManager.DisplayAllText();
 				break;
 			case 1: //Phone System
 				// Process input anyways.
@@ -153,9 +159,11 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		dialogueManager.StartCoroutine("LetterByLetter");
 	}
 
-	// Following existing paradigm
-	// NOTE: consider shifting responsibility of preparing text and such from GameManager to DialogueManager?
-	// I notice several different links to methods across the dialogueManager and textCommands to handle command inputs and such
+	// Following existing paradigm from AdvanceText
+	/* NOTE: consider shifting responsibility of preparing text and such from GameManager to DialogueManager?
+		I notice several different links to methods across the dialogueManager and textCommands to 
+		handle command inputs and such as well as GameManager
+	*/
 	public void AdvancePhoneText()
 	{
 		PrepText();
@@ -164,7 +172,13 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 
     IEnumerator ParseQueue(){ //Runs through start-of-line events
 		Debug.Log("Parsing queue...");
-        playerInControl = false;
+		bool shouldReturnControl = false;
+		if (playerInControl)
+		{
+			shouldReturnControl = true;
+			playerInControl = false;
+		}
+        
 		int count = 0;
 		Type type = typeof(EventManager);
 		MethodInfo mi;
@@ -181,15 +195,23 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 			count++;
         }
 		eventQueueParamList.Clear();
-        playerInControl = true;
+		if (shouldReturnControl)
+		{
+			playerInControl = true;
+		}
 		yield return null;
     }
 
-	void SetPlayerControl (bool control) {
+	public void SetPlayerControl (bool control) {
 		playerInControl = control;
 	}
-	bool getPlayerControl () {
+	public bool getPlayerControl () {
 		return playerInControl;
+	}
+
+	void SetBlockInputWhilePrinting ()
+	{
+
 	}
 
 	void SetControlMode (int mode) {

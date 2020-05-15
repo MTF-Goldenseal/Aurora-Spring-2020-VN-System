@@ -6,8 +6,9 @@ public class VFXScriptDream : VFXScript {
     // Start is called before the first frame update
     private AudioSource audioPlayer;
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         audioPlayer = this.GetComponent<AudioSource>();
     }
     public void DispProb(float level) {

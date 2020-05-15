@@ -97,7 +97,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		dialogueManager.Sender = (DialogueManager.SenderTypes)sender;
 	}
 
-	// TODO: Pull the phone down or up - 
+	// TODO: Pull the phone down or up
 	public void SetPhoneActive(int state)
 	{
 		// ==== Enable ====
@@ -120,11 +120,10 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	public void ControlMode(int mode) {
 		// Toggle between different control modes: 0 - normal, 1 - phone
-		if (gameManager.controlMode != 2)
+		if (mode < 0 || mode > 1)
 		{
-			gameManager.previousControlMode = gameManager.controlMode;
+			Debug.Log("Undefined control mode #" + mode);
 		}
-		
 		gameManager.controlMode = mode;
 	}
 
@@ -132,12 +131,17 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 	{
 		if (enabled)
 		{
-			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -5);
+			dialogueBox.SetActive(true);
 		}
 		else
 		{
-			dialogueBox.transform.position = new Vector3(dialogueBox.transform.position.x, dialogueBox.transform.position.y, -30);
+			dialogueBox.SetActive(false);
 		}
+	}
+
+	public void BlockInputWhilePrinting(bool val)
+	{
+		gameManager.blockInputWhilePrinting = val;
 	}
 
 	public void AdvancePhoneText(int messages)
@@ -523,6 +527,8 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	public void EnableQTE(string eventName)
 	{
+		// Create QTE events as prefabs with data already prefilled.
+		// Find QTE event by name in scene, the script (or scripts) attached should be based off the StartQTE function executing to kick off any scene work
 		GameObject QTEObject = GameObject.Find(eventName);
 		QTEObject.GetComponent<QTE>().StartQTE();
 	}

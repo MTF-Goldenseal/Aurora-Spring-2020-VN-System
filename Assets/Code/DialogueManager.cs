@@ -83,11 +83,7 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		
 		autoNext = false;
 
-		string testString = "showcase"; //tempcode
-
 		LoadScript(scriptName);
-
-
 	}
 
 	public void LoadScript (string path){ //loads text script into a queue
@@ -109,8 +105,14 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 	public void LoadNextLine(int line = -1){ //loads next line into finalText and increments the lineIndex, can jump to a given line. Resets textIndex.
 		if (line == -1){
 			Debug.Log("Reading next line #"+lineIndex);
-			finalText = sceneScript[lineIndex];
-			lineIndex++;
+			// This apparently needs to indexOutOfBounds so it doesnt print the same message repeatedly...
+			if (lineIndex <= sceneScript.Count)
+			{
+				finalText = sceneScript[lineIndex];
+				lineIndex++;
+			} else {
+				Debug.Log("Out of lines to read");
+			}
 		} else {
 			Debug.Log("Jumping to line #"+line);
 			finalText = sceneScript[line];
@@ -218,8 +220,6 @@ public class DialogueManager : MonoBehaviour //Handles all text functionality
 		// Change underlay color (existing function) Change text color +
 		// Need to make a second TMP object or material in scene to assign to one persons' message vs other
 		// Thats all for Phone Dialogue
-
-		// 
 
 	}
 	#endregion

@@ -7,7 +7,7 @@ public class VFXScript : MonoBehaviour
     private Animator animController;
     public static EventManager eventManager;
     private int VFXInstanceIndex;
-    void Start() {
+    protected virtual void Start() {
         animController = this.GetComponent<Animator>();
         animController.SetBool("animExit", false);
         eventManager = GameObject.Find("Overlord").GetComponent<EventManager>();
@@ -17,7 +17,7 @@ public class VFXScript : MonoBehaviour
         VFXInstanceIndex = i;
     }
 
-    public void DestroySelf() {
+    public virtual void DestroySelf() {
         eventManager.RemoveVFX(VFXInstanceIndex);
     }
 }
