@@ -21,9 +21,6 @@ namespace Paratoxic.DialogueManager
         private float secondsBetweenAutoAdvancedMessages;
         protected float SecondsBetweenAutoAdvancedMessages { get { return secondsBetweenAutoAdvancedMessages; } set { secondsBetweenAutoAdvancedMessages = value; } }
 
-        private Queue eventQueue;
-        private List<object[]> eventQueueParamList = new List<object[]>();
-
         // Start is called before the first frame update
         void Start()
         {
@@ -49,6 +46,7 @@ namespace Paratoxic.DialogueManager
                 lineNumber++;
                 
             } while (script.Peek() >= 0);
+            script.BaseStream.Position = 0;
         }
 
         private void AddByteCountToList(string line, int lineCount)

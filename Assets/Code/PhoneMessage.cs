@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using static Paratoxic.DialogueManager.PhoneDialogueManager;
 
 public class PhoneMessage : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class PhoneMessage : MonoBehaviour
         }
     }
 
-    public void Initialize(DialoguePhoneScript phone, DialogueManager.SenderTypes sender, string text)
+    public void Initialize(Paratoxic.DialogueManager.PhoneDialogueManager phone, SenderTypes sender, string text)
     {
         dialogueTextObject = gameObject.transform.GetChild(0).gameObject;
         dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
@@ -50,14 +51,14 @@ public class PhoneMessage : MonoBehaviour
         // Set Underlay Color 
 
         // Also differentiate user message Spawn vs Other message spawn so we can have custom prefabs for user messages that have custom widths
-        if (sender == DialogueManager.SenderTypes.MAIN) {
+        if (sender == SenderTypes.MAIN) {
             // Some hack shit
             bubbleSprite = transform.GetChild(1).gameObject.GetComponent<SpriteRenderer>();
             transform.GetChild(2).gameObject.SetActive(false);
             dialogueText.alignment = TextAlignmentOptions.TopRight;
             dialogueText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Carlito-Regular SDF User");
             this.spawn = phone.messageSpawn; 
-        } else if(sender == DialogueManager.SenderTypes.OTHER){
+        } else if(sender == SenderTypes.OTHER){
             // Some hack shit
             bubbleSprite = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
             transform.GetChild(1).gameObject.SetActive(false);
