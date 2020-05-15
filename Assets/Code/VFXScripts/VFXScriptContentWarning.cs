@@ -14,6 +14,7 @@ public class VFXScriptContentWarning : VFXScript
         gameManager.SetPlayerControl(false);
     }
 
+    // Animation event called at end of Content Warning timer
     public override void DestroySelf()
     {
         gameManager.SetPlayerControl(true);

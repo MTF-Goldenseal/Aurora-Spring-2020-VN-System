@@ -24,6 +24,11 @@ public class VFXScriptDream : VFXScript {
         this.GetComponent<SpriteRenderer>().material.SetFloat("_ColorProbability", level);
     }
 
+    // animation event called at the end of the Dream Sequence animation during fade
+    public void ControlModeToPhone() {
+        eventManager.ControlMode(1);
+    }
+
     public void PlaySound() {
         if (audioPlayer.isPlaying == false)
             audioPlayer.Play();

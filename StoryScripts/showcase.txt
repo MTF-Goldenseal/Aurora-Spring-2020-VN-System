@@ -84,8 +84,7 @@ I knew what I had to do.
 [StopMusic]If I just carved it out...I'd be able to breathe again, right?
 I just wanted to breathe
 [EnableQTE s=QTEThroat]I just wanted to breathe
-[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][ControlMode i=1][BlockInputWhilePrinting b=false] 
-uhh
+[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][BlockInputWhilePrinting b=false]uhh
 hhhhhhhhhhhhhhh
 [SetVFX i=0 i=0][PlayMusic s=SoftPianoBeat]i don't remember what happened after that
 [MessageSender i=1]Good god, what the hell dude
