@@ -14,22 +14,31 @@ namespace Paratoxic.DialogueManager
         public SenderTypes CurrentSender { get; set; }
 
         [SerializeField]
+        private float defaultMessageDistance;
+        [SerializeField]
         private GameObject phoneTextBoxPrefab;
         [SerializeField]
         private Transform messagesContainer;
         [SerializeField]
         private bool playSounds;
+        [SerializeField]
+        private Transform userMessageSpawnPoint;
+        public Transform UserMessageSpawnPoint { get => userMessageSpawnPoint; private set => userMessageSpawnPoint = value; }
+        [SerializeField]
+        private Transform otherMessageSpawnPoint;
+        public Transform OtherMessageSpawnPoint { get => otherMessageSpawnPoint; private set => otherMessageSpawnPoint = value; }
+
         private bool PlaySounds { get; set; }
 
-        protected override void DisplayEntireLineAtOnce(string line)
+        private List<PhoneMessage> messageHistory;
+
+        public override void DisplayEntireLineAtOnce(string line)
         {
             GameObject messageObject = Instantiate(phoneTextBoxPrefab, messagesContainer);
             PhoneMessage phoneMessage = messageObject.GetComponent<PhoneMessage>();
 
             phoneMessage.Initialize(this, CurrentSender, line);
-            sentMessages.Add(phoneMessage);
-
-            SpriteRenderer messageSprite = phoneMessage.bubbleSprite;
+            messageHistory.Add(phoneMessage);
 
             // add message length and default message distance to offset
             Vector3 offset = new Vector3(0, defaultMessageDistance, 0) + new Vector3(0, phoneMessage.dialogueText.GetPreferredValues().y, 0);
@@ -43,7 +52,7 @@ namespace Paratoxic.DialogueManager
 
         public void ShiftMessages(Vector3 offset)
         {
-            foreach (PhoneMessage phoneMessage in sentMessages)
+            foreach (PhoneMessage phoneMessage in messageHistory)
             {
                 phoneMessage.ShiftMessageOffset(offset);
             }

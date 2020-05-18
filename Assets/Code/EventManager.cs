@@ -7,12 +7,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Paratoxic.DialogueManager;
 
 public class EventManager : MonoBehaviour //Handles events, such as dialogue box changing, nameplate change, visual effects, branching, etc.
 {
 	//Scripts
 	public static GameManager gameManager;
-	public static DialogueManager dialogueManager;
+	public static GeneralDialogueManager generalDialogueManager;
+	public static PhoneDialogueManager phoneDialogueManager;
 	public static Data data;
 
 	//UI Animations
@@ -45,7 +47,8 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 	void Start()
 	{
 		gameManager = GetComponent<GameManager>();
-		dialogueManager = GetComponent<DialogueManager>();
+		generalDialogueManager = GetComponent<GeneralDialogueManager>();
+		phoneDialogueManager = GetComponent<PhoneDialogueManager>();
 		data = GetComponent<Data>();
 
 		dialogueBox = GameObject.Find("DialogueBox");
@@ -78,7 +81,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	#region MainDialogueSystem
 	public void TalkSpeed(float speed) { //[TalkSpeed f=0.35]
-		dialogueManager.waitTime = speed;
+		generalDialogueManager.DelayBetweenEachLetter = speed;
 	}
 
 	public void PointerMove(Vector3 location) {
@@ -94,7 +97,7 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 
 	#region PhoneDialogueSystem
 	public void MessageSender(int sender) { //Command for making text messages after the command is called spawn on the left or right
-		dialogueManager.Sender = (DialogueManager.SenderTypes)sender;
+		phoneDialogueManager.CurrentSender = (PhoneDialogueManager.SenderTypes)sender;
 	}
 
 	// TODO: Pull the phone down or up - 
@@ -140,41 +143,14 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 		}
 	}
 
-	public void AdvancePhoneText(int messages)
-	{
-		DialoguePhoneScript phoneScript = dialogueManager.dialoguePhoneScript;
-		phoneScript.playSounds = false;
-		for (int i = 0; i < messages; i++)
-		{
-			gameManager.AdvancePhoneText();
-		}
-		phoneScript.playSounds = true;
-	}
-
-	public void BoxState(int state) {
-        if (dialogueBoxScript.GetDialogueAnim() == false) {
-            dialogueBoxScript.EnableDialogueAnim();
-        }
-        dialogueBoxScript.SetBoxState(state);
-    }
-    public void NameState(int state) {
-        dialogueBoxScript.SetNameState(state);
-    }
-    public void UnderColor(Color c) {
-        dialogueManager.ChangeUnderlay(c);
-    }
-
-	public void NextLine() {
-		gameManager.AdvanceText();
-	}
-	public void AutoNext(float time) {
-		dialogueManager.autoNextDelay = time;
-		if (dialogueManager.autoNext == false) {
-			dialogueManager.autoNext = true;
-		} else {
-			dialogueManager.autoNext = false;
-		}
-	}
+	//public void AutoNext(float time) {
+	//	dialogueManager.autoNextDelay = time;
+	//	if (dialogueManager.autoNext == false) {
+	//		dialogueManager.autoNext = true;
+	//	} else {
+	//		dialogueManager.autoNext = false;
+	//	}
+	//}
     #endregion
 
     #region Characters
@@ -603,28 +579,28 @@ public class EventManager : MonoBehaviour //Handles events, such as dialogue box
 	#endregion
 
 	#region Branching and Flag Setting
-	public void Branch (int line) {  //[Branch i=1]
-		dialogueManager.lineIndex = line;
-	}
-	public void BranchFlag(int line, string flag = null, int value = -1) { //[Branch i=1 s=datedPapyrus i=1]
-		if (flag == null) {
-			dialogueManager.lineIndex = line;
-		} else {
-			Data.Flag tempFlag = data.flagList.Find(x => x.FlagName == flag);
-			if (tempFlag.FlagValue == value) {
-				dialogueManager.lineIndex = line;
-			}
-		}
-	}
-	public void Flag(string flagName, int value) { //[Flag s=datedPapyrus i=1]
-		int index = data.flagList.IndexOf(data.flagList.Find(x => x.FlagName == flagName));
-		data.flagList[index].FlagValue = value;
-	}
+	//public void Branch (int line) {  //[Branch i=1]
+	//	dialogueManager.lineIndex = line;
+	//}
+	//public void BranchFlag(int line, string flag = null, int value = -1) { //[Branch i=1 s=datedPapyrus i=1]
+	//	if (flag == null) {
+	//		dialogueManager.lineIndex = line;
+	//	} else {
+	//		Data.Flag tempFlag = data.flagList.Find(x => x.FlagName == flag);
+	//		if (tempFlag.FlagValue == value) {
+	//			dialogueManager.lineIndex = line;
+	//		}
+	//	}
+	//}
+	//public void Flag(string flagName, int value) { //[Flag s=datedPapyrus i=1]
+	//	int index = data.flagList.IndexOf(data.flagList.Find(x => x.FlagName == flagName));
+	//	data.flagList[index].FlagValue = value;
+	//}
 	#endregion
 
 	#region Scene Management
-	public void LoadScene(string sceneName, string scriptName) { //[LoadScene s=sceneName s=scriptName] temp code while scene setup is in progress
-		dialogueManager.LoadScript(scriptName);
+	public void LoadScene(string sceneName, string scriptName, int mode) { //[LoadScene s=sceneName s=scriptName] temp code while scene setup is in progress
+		DialogueManager.LoadScript(scriptName);
 		SceneManager.LoadScene(sceneName);
 	}
 	#endregion

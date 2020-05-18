@@ -15,9 +15,10 @@ namespace Paratoxic.DialogueManager
         private GameObject dialogueTextObject;
         [SerializeField]
         private bool isPlayingDialogue;
-        public bool IsPlayingDialogue { get { return isPlayingDialogue; } private set { isPlayingDialogue = value; } }
+        public bool IsPlayingDialogue { get => isPlayingDialogue; private set => isPlayingDialogue = value; }
         [SerializeField]
         private float delayBetweenEachLetter = 0.04f;
+        public float DelayBetweenEachLetter { get => delayBetweenEachLetter; set => delayBetweenEachLetter = value; }
 
         private List<char> specialChars = new List<char> { ' ', '[', ']', '<', '>', '=' };
         private TextMeshPro dialogueText;
@@ -36,7 +37,7 @@ namespace Paratoxic.DialogueManager
         
         }
 
-        protected override void DisplayEntireLineAtOnce(string line)
+        public override void DisplayEntireLineAtOnce(string line)
         {
             IsPlayingDialogue = false;
             if (WrittingTextOut != null)

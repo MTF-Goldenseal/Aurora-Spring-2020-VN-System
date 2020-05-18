@@ -5,13 +5,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
 using UnityEngine.SceneManagement;
+using Paratoxic.DialogueManager;
 
 public class GameManager : MonoBehaviour //Manages general game logic, communication between lower level scripts/systems
 {
     //Scripts
     public static GameManager gameManager;
 	public static EventManager eventManager;
-    public static DialogueManager dialogueManager;
+    //public static DialogueManager dialogueManager;
+	public static GeneralDialogueManager generalDialogueManager;
+	public static PhoneDialogueManager phoneDialogueManager;
 	public static TextCommands textCommands;
 	public static Data data;
 
@@ -44,7 +47,9 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
     void Start()
     {
 		eventManager = GetComponent<EventManager>();
-        dialogueManager = GetComponent<DialogueManager>();
+        //dialogueManager = GetComponent<DialogueManager>();
+		generalDialogueManager = GetComponent<GeneralDialogueManager>();
+		phoneDialogueManager = GetComponent<PhoneDialogueManager>();
 		textCommands = GetComponent<TextCommands>();
 		data = GetComponent<Data>();
         
@@ -82,15 +87,15 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		switch (mode) {
 			case 0: //Normal Dialogue
 				if (playingDialogue == false) {
-					AdvanceText();
+					generalDialogueManager.LoadNextLine();
 				} else { //Same functionality as left control/right click while dialogue is playing.
-					dialogueManager.DisplayAllText();
+					generalDialogueManager.LoadNextLine(displayQuickly: true);
 				}
 				break;
 			case 1: //Phone System
-				// TODO: Call Next message from Dialogue Manager for phone system
-				// Currently following existing structure to load and prep text through game manager
-				AdvancePhoneText();
+					// TODO: Call Next message from Dialogue Manager for phone system
+					// Currently following existing structure to load and prep text through game manager
+				phoneDialogueManager.LoadNextLine();
 				break;
 			case 2:
 				//Block input. Do nothing. 
@@ -103,10 +108,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void InputBack(int mode) {
 		switch (mode) {
 			case 0: //Normal Dialogue
-				if (dialogueManager.finalText == "") {
-					PrepText();
-				}
-				dialogueManager.DisplayAllText();
+				generalDialogueManager.LoadNextLine(displayQuickly: true);
 				break;
 			case 1: //Phone System
 				// Process input anyways.
@@ -118,77 +120,4 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		}
 	}
 	#endregion
-
-	private string ProcessInitialBrackets(string lineToProcess)
-	{
-		string initialBracketsPattern = @"((\[.*?\])+\[.*?\])|(^\[.*?\])";
-		string bracketSeparationPattern = @"\[.*?\]";
-
-		string capturedBrackets = Regex.Match(lineToProcess, initialBracketsPattern).Groups[0].Value;
-
-		foreach (Match match in Regex.Matches(capturedBrackets, bracketSeparationPattern))
-		{
-			textCommands.ProcessEvent(match.Value.Substring(1, match.Value.Length - 2), isStartOfLine: true);
-		}
-
-		dialogueManager.SetTextIndex(dialogueManager.GetTextIndex() + capturedBrackets.Length);
-		return lineToProcess.Substring(capturedBrackets.Length);
-	}
-
-	public void PrepText() {
-		dialogueManager.LoadNextLine();
-
-		if (controlMode == 1)
-		{
-			dialogueManager.finalText = ProcessInitialBrackets(dialogueManager.finalText);
-		}
-		dialogueManager.AddToHistory(dialogueManager.finalText);
-
-		//textCommands.CheckBracket(dialogueManager.GetTextIndex(), true);
-		StartCoroutine("ParseQueue");
-	}
-	public void AdvanceText() {
-		PrepText();
-		dialogueManager.StartCoroutine("LetterByLetter");
-	}
-
-	// Following existing paradigm
-	// NOTE: consider shifting responsibility of preparing text and such from GameManager to DialogueManager?
-	// I notice several different links to methods across the dialogueManager and textCommands to handle command inputs and such
-	public void AdvancePhoneText()
-	{
-		PrepText();
-		dialogueManager.NextPhoneMessage();
-	}
-
-    IEnumerator ParseQueue(){ //Runs through start-of-line events
-		Debug.Log("Parsing queue...");
-        PlayerInControl = false;
-		int count = 0;
-		Type type = typeof(EventManager);
-		MethodInfo mi;
-        while (eventQueue.Count != 0){
-			Debug.Log("Running event: "+eventQueue.Peek());
-			if ((string)eventQueue.Peek() == "Delay") {
-				IEnumerator delay = eventManager.Delay((float)eventQueueParamList[count][0]);
-				yield return StartCoroutine(delay);
-			} else {
-				mi = type.GetMethod(eventQueue.Dequeue().ToString());
-				mi.Invoke(eventManager, eventQueueParamList[count]);
-			}
-			//eventQueue.Dequeue();
-			count++;
-        }
-		eventQueueParamList.Clear();
-        PlayerInControl = true;
-		yield return null;
-    }
-
-	void SetControlMode (int mode) {
-
-		controlMode = mode;
-	}
-	int getControlMode () {
-		return controlMode;
-	}
 }

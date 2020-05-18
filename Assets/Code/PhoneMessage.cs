@@ -57,13 +57,13 @@ public class PhoneMessage : MonoBehaviour
             transform.GetChild(2).gameObject.SetActive(false);
             dialogueText.alignment = TextAlignmentOptions.TopRight;
             dialogueText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Carlito-Regular SDF User");
-            this.spawn = phone.messageSpawn; 
+            spawn = phone.UserMessageSpawnPoint.gameObject; 
         } else if(sender == SenderTypes.OTHER){
             // Some hack shit
             bubbleSprite = transform.GetChild(2).gameObject.GetComponent<SpriteRenderer>();
             transform.GetChild(1).gameObject.SetActive(false);
             dialogueText.fontSharedMaterial = Resources.Load<Material>("Fonts & Materials/Carlito-Regular SDF Other");
-            spawn = phone.messageSpawn;
+            spawn = phone.OtherMessageSpawnPoint.gameObject;
         }
         else
         {
@@ -75,10 +75,10 @@ public class PhoneMessage : MonoBehaviour
 
     public void ShiftMessageOffset(Vector3 v)
     {
-        this.transitioning = true;
-        this.transitionFraction = 0.0f;
-        this.startPosition = transform.position;
-        this.offset += v;
-        this.destinationPosition = spawn.transform.position + offset;
+        transitioning = true;
+        transitionFraction = 0.0f;
+        startPosition = transform.position;
+        offset += v;
+        destinationPosition = spawn.transform.position + offset;
     }
 }

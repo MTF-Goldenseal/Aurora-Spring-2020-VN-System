@@ -9,12 +9,12 @@ namespace Paratoxic.DialogueManager
 {
     public abstract class DialogueManager : MonoBehaviour
     {
-        private StreamReader script;
+        public static StreamReader script;
         private TextCommands textCommands;
 
-        protected List<long> numOfBytesToOffsetToSpecificLine;
+        protected static List<long> numOfBytesToOffsetToSpecificLine;
         protected int CurrentLineNumber { get; set; } = 0;
-        public bool IsDelaying { get; set; }
+        public bool IsDelaying { get; protected set; }
         protected float secondsOfDelayLeft = 0f;
         protected bool IsAudoAdvancing { get; set; } = false;
         [SerializeField]
@@ -34,7 +34,7 @@ namespace Paratoxic.DialogueManager
         
         }
 
-        protected void LoadScript(string fileName)
+        public static void LoadScript(string fileName)
         {
             script = new StreamReader($"StoryScripts\\{fileName}.txt");
             string line;
@@ -49,7 +49,7 @@ namespace Paratoxic.DialogueManager
             script.BaseStream.Position = 0;
         }
 
-        private void AddByteCountToList(string line, int lineCount)
+        private static void AddByteCountToList(string line, int lineCount)
         {
             if (lineCount == 0)
             {
@@ -61,24 +61,31 @@ namespace Paratoxic.DialogueManager
             }
         }
 
-        public void LoadNextLine()
+        public void LoadNextLine(bool displayQuickly = false)
         {
             CurrentLineNumber++;
-            LoadLine();
+            LoadLine(displayQuickly);
         }
 
-        public void JumpToLine(int lineNumber)
+        public void JumpToLine(int lineNumber, bool displayQuickly = false)
         {
             CurrentLineNumber = lineNumber;
-            LoadLine();
+            LoadLine(displayQuickly);
         }
 
-        private void LoadLine()
+        private void LoadLine(bool displayQuickly = false)
         {
             script.BaseStream.Position = numOfBytesToOffsetToSpecificLine[CurrentLineNumber];
             Debug.Log($"Reading line number {CurrentLineNumber}");
             string line = script.ReadLine();
-            DisplayLine(line);
+            if(displayQuickly)
+            {
+                DisplayEntireLineAtOnce(line);
+            }
+            else
+            {
+                DisplayLine(line);
+            }
         }
 
         protected abstract void DisplayLine(string line);
@@ -118,6 +125,6 @@ namespace Paratoxic.DialogueManager
 
         protected abstract void ResetVariables();
 
-        protected abstract void DisplayEntireLineAtOnce(string line);
+        public abstract void DisplayEntireLineAtOnce(string line);
     }
 }

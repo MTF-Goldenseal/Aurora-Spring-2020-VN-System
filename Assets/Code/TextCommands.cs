@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
+using Paratoxic.DialogueManager;
 
 public class TextCommands : MonoBehaviour //Processes commands and passes them back to either the EventManager or DialogueManager
 {
@@ -23,22 +24,14 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 		gameManager = GetComponent<GameManager>();
 		dialogueManager = GetComponent<DialogueManager>();
 		eventManager = GetComponent<EventManager>();
-		newDialogueManager = GetComponent<Paratoxic.DialogueManager.DialogueManager>();
 	}
 
-	public void CheckBracket(int givenIndex, bool isStartOfLine){ //checks bracket command and performs appropriate measures. repeats if another command immediately follows
-		if (dialogueManager.finalText[givenIndex] == '[') { //[Test][Test]test line
-			string com = "";
-			dialogueManager.IncrementTextIndex();
-			while (dialogueManager.finalText[dialogueManager.GetTextIndex()] != ']')
-			{
-				com += dialogueManager.finalText[dialogueManager.GetTextIndex()];
-				dialogueManager.IncrementTextIndex();
-			}
-			if (dialogueManager.GetTextIndex() < dialogueManager.finalText.Length) {
-				dialogueManager.IncrementTextIndex(); //textIndex should be located on the space after the command.
-			}
-			if (com.Length >= 4 && com.Substring(0, 4) == "name") {
+	public void ProcessEvent(string s, bool isStartOfLine){
+
+		/* NOTE from Seb, to Luz:
+		 * This block of code you had was in the "CheckBracket" function that I deleted. Since this hadn't really been implemented yet, I'll just say that this should be put here instead, and that you should consider renaming this function to something like "ProcessBracketContents", as it's a more clear name for what it does.
+		 
+		  if (com.Length >= 4 && com.Substring(0, 4) == "name") {
 				com = com.Substring(5, com.Length-5);
 				ProcessName(com);
 			} else if (com.Length >= 6 && com.Substring(0, 6) == "choice") {
@@ -51,22 +44,8 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 					dialogueManager.IncrementTextIndex(-1);
 				}
 			}
-			if (dialogueManager.finalText[dialogueManager.GetTextIndex()] == '[') { //if another command follows immediately after, check it.
-				CheckBracket(dialogueManager.GetTextIndex(), isStartOfLine);
-			}
-		} else {
-			Debug.Log("TextCommands.CheckBracket(): No bracket found.");
-		}
-	}
+		 */
 
-	public void ProcessName(string name){ //if name is different from current speaker, queue a speaker change, else queue dialogue box next anim
-		//gameManager.speaker = data.speakerList.Find(x => x.Contains(name));
-	}
-	public void ProcessChoice(string choiceString){
-		//parse the entire string for values and pass values to ChoiceManager.cs
-		Debug.Log("TextCommands.ProcessChoice() called, still needs to be written.");
-	}
-	public void ProcessEvent(string s, bool isStartOfLine){
 		string com = "";
 		string paramType, paramValue;
 		System.Object[] invokerParams = new System.Object[10];
@@ -100,8 +79,7 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 				Debug.Log(e);
 			}
 			if (eventName == "Delay" && gameManager.playingDialogue == true) { //if the event is a delay and dialogue is running, delay.
-				dialogueManager.delaySignal = true;
-				dialogueManager.delayValue = (float)invokerParams[0];
+				dialogueManager.DelayTextForSeconds((float)invokerParams[0]);
 			} else { //else, call the given event immediately.
 				Type type = typeof(EventManager);
 				MethodInfo mi = type.GetMethod(eventName);
