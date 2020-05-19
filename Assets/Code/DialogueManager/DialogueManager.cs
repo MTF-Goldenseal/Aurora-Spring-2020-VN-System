@@ -12,7 +12,7 @@ namespace Paratoxic.DialogueManager
         public static StreamReader script;
         private TextCommands textCommands;
 
-        protected static List<long> numOfBytesToOffsetToSpecificLine;
+        protected static List<long> numOfBytesToOffsetToSpecificLine = new List<long>();
         protected int CurrentLineNumber { get; set; } = 0;
         public bool IsDelaying { get; protected set; }
         protected float secondsOfDelayLeft = 0f;
@@ -24,7 +24,6 @@ namespace Paratoxic.DialogueManager
         // Start is called before the first frame update
         void Start()
         {
-            numOfBytesToOffsetToSpecificLine = new List<long>();
             textCommands = GameObject.Find("Overlord").GetComponent<TextCommands>();
         }
 

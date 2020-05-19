@@ -646,7 +646,6 @@ GameObject:
   - component: {fileID: 471635375}
   - component: {fileID: 471635374}
   - component: {fileID: 471635376}
-  - component: {fileID: 471635377}
   m_Layer: 0
   m_Name: Phone
   m_TagString: Untagged
@@ -719,6 +718,7 @@ Transform:
   - {fileID: 130195804}
   - {fileID: 709823034}
   - {fileID: 47606912}
+  - {fileID: 1365719259}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -735,27 +735,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DistortionRate: 0.15
---- !u!114 &471635377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 471635373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbb676a99e5020c47b983ff1bad74258, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smallBox: {fileID: 0}
-  mediumBox: {fileID: 0}
-  largeBox: {fileID: 0}
-  otherSpawn: {fileID: 0}
-  userSpawn: {fileID: 0}
-  messageSpawn: {fileID: 0}
-  sentMessages: []
-  defaultMessageDistance: 0.4
-  playSounds: 1
 --- !u!1 &510952514
 GameObject:
   m_ObjectHideFlags: 0
@@ -2104,6 +2083,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
+--- !u!1 &1365719258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1365719259}
+  m_Layer: 0
+  m_Name: MessageHistory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1365719259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1365719258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 471635375}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1372392710
 GameObject:
   m_ObjectHideFlags: 0
@@ -3141,7 +3150,9 @@ GameObject:
   - component: {fileID: 2037767917}
   - component: {fileID: 2037767921}
   - component: {fileID: 2037767920}
+  - component: {fileID: 2037767926}
   - component: {fileID: 2037767916}
+  - component: {fileID: 2037767925}
   - component: {fileID: 2037767918}
   - component: {fileID: 2037767922}
   - component: {fileID: 2037767919}
@@ -3163,27 +3174,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 2037767915}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9549c58b6c339c744978405999b53739, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a780968af77db74e9e36c3330d48823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueBoxScript: {fileID: 0}
-  dialoguePhoneScript: {fileID: 0}
-  scriptName: showcase
-  dialogueTextObject: {fileID: 0}
-  historyTextObject: {fileID: 0}
-  dialogueText: {fileID: 0}
-  historyText: {fileID: 0}
-  historyTextContainer: {fileID: 0}
-  waitTime: 0.025
-  finalText: 
-  currentText: 
-  lineIndex: 0
-  delaySignal: 0
-  delayValue: 0
-  autoNext: 0
-  autoNextDelay: 0
-  musicSource: {fileID: 2037767919}
-  voiceSource: {fileID: 2037767923}
+  secondsBetweenAutoAdvancedMessages: 1
+  charSoundBite: {fileID: 0}
+  dialogueBox: {fileID: 544175030}
+  dialogueTextObject: {fileID: 1990445902}
+  isPlayingDialogue: 0
+  delayBetweenEachLetter: 0.04
 --- !u!4 &2037767917
 Transform:
   m_ObjectHideFlags: 0
@@ -3346,7 +3345,6 @@ MonoBehaviour:
   controlMode: 0
   previousControlMode: 0
   initialControlMode: 1
-  playerInControl: 1
   playerInChoice: 0
   playingDialogue: 0
   speaker: 
@@ -3559,3 +3557,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2037767925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037767915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3d135fc63853f49993b30091843baf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBetweenAutoAdvancedMessages: 1
+  defaultMessageDistance: 0.4
+  phoneTextBoxPrefab: {fileID: 2372033610815660828, guid: 3c7ecf8fe4a03e141a4988d6802993cb,
+    type: 3}
+  messagesContainer: {fileID: 1365719259}
+  playSounds: 1
+  userMessageSpawnPoint: {fileID: 1180885507}
+  otherMessageSpawnPoint: {fileID: 204153537}
+--- !u!114 &2037767926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037767915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ba7d48809fac28469ac9c3bddab1181, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scriptName: showcase

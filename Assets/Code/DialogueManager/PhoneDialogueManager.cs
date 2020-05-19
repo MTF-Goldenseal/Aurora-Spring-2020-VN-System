@@ -84,7 +84,7 @@ namespace Paratoxic.DialogueManager
         // Start is called before the first frame update
         void Start()
         {
-        
+            messageHistory = new List<PhoneMessage>();
         }
 
         // Update is called once per frame
