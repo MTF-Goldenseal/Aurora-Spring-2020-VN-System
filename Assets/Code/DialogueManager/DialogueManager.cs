@@ -12,7 +12,7 @@ namespace Paratoxic.DialogueManager
         public static StreamReader script;
         private TextCommands textCommands;
 
-        protected static List<long> numOfBytesToOffsetToSpecificLine = new List<long>();
+        protected static List<long> numOfBytesToOffsetToSpecificLine = new List<long>() { 0 };
         protected int CurrentLineNumber { get; set; } = 0;
         public bool IsDelaying { get; protected set; }
         protected float secondsOfDelayLeft = 0f;
@@ -62,8 +62,8 @@ namespace Paratoxic.DialogueManager
 
         public void LoadNextLine(bool displayQuickly = false)
         {
-            CurrentLineNumber++;
             LoadLine(displayQuickly);
+            CurrentLineNumber++;
         }
 
         public void JumpToLine(int lineNumber, bool displayQuickly = false)

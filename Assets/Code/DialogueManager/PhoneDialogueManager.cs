@@ -37,6 +37,8 @@ namespace Paratoxic.DialogueManager
             GameObject messageObject = Instantiate(phoneTextBoxPrefab, messagesContainer);
             PhoneMessage phoneMessage = messageObject.GetComponent<PhoneMessage>();
 
+            line = ProcessInitialBrackets(line);
+
             phoneMessage.Initialize(this, CurrentSender, line);
             messageHistory.Add(phoneMessage);
 

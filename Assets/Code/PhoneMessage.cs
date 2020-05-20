@@ -79,6 +79,6 @@ public class PhoneMessage : MonoBehaviour
         transitionFraction = 0.0f;
         startPosition = transform.position;
         offset += v;
-        destinationPosition = spawn.transform.position + offset;
+        destinationPosition = spawn.transform.localPosition + offset;
     }
 }
