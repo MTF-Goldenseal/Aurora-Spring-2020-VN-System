@@ -29,6 +29,7 @@ namespace Paratoxic.DialogueManager
         {
             dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
             dialogueText.text = "";
+            base.Start();
         }
 
         // Update is called once per frame
@@ -120,7 +121,7 @@ namespace Paratoxic.DialogueManager
             dialogueBox.SetTalking(false);
             IsPlayingDialogue = false;
 
-            if (IsAudoAdvancing && CurrentLineNumber < numOfBytesToOffsetToSpecificLine.Count)
+            if (IsAudoAdvancing && CurrentLineNumber < loadedScript.Count)
             {
                 AutoAdvance();
             }

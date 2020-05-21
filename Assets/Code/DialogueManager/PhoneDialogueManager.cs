@@ -32,6 +32,28 @@ namespace Paratoxic.DialogueManager
 
         private List<PhoneMessage> messageHistory;
 
+        //SEB: These should later be replaced by other sprites if my suggestion is accepted
+        [SerializeField]
+        private Sprite largeBox;
+        [SerializeField]
+        private Sprite mediumBox;
+        [SerializeField]
+        private Sprite smallBox;
+        //SEB: These should later be replaced by other sprites if my suggestion is accepted
+
+        // Start is called before the first frame update
+        new void Start()
+        {
+            messageHistory = new List<PhoneMessage>();
+            base.Start();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+
         public override void DisplayEntireLineAtOnce(string line)
         {
             GameObject messageObject = Instantiate(phoneTextBoxPrefab, messagesContainer);
@@ -41,6 +63,26 @@ namespace Paratoxic.DialogueManager
 
             phoneMessage.Initialize(this, CurrentSender, line);
             messageHistory.Add(phoneMessage);
+
+            /*SEB:
+             * This should get replaced by a different system. 
+             * Here's a suggestion:
+             * Have 3 sprites. A top, which contains the arrow part of the bubble (https://i.imgur.com/ndmUZIv.png), a middle, which is just an extension without a defined end on top of bottom (https://i.imgur.com/BhQx2Q9.png), and a bottom, which closes out the box (https://i.imgur.com/3IlPRyv.png). 
+             * If it's small enough, sure, use the already existing sprite for the small box, but if it's medium, use the top and bottom, and if it's anything bigger than that, calculate the necessary height and divide it by the height of the medium extension, making it so you can add as many "middle parts" as necessary to accomodate the entire message.
+             * Send me a message if it's unclear and I can provide a better example.
+             */
+            if (phoneMessage.dialogueText.preferredHeight > 1)
+            {
+                phoneMessage.bubbleSprite.sprite = largeBox;
+            }
+            else if (phoneMessage.dialogueText.preferredHeight > 0.5f)
+            {
+                phoneMessage.bubbleSprite.sprite = mediumBox;
+            }
+            else
+            {
+                phoneMessage.bubbleSprite.sprite = smallBox;
+            }
 
             // add message length and default message distance to offset
             Vector3 offset = new Vector3(0, defaultMessageDistance, 0) + new Vector3(0, phoneMessage.dialogueText.GetPreferredValues().y, 0);
@@ -81,18 +123,6 @@ namespace Paratoxic.DialogueManager
         protected override void ResetVariables()
         {
             throw new System.NotImplementedException();
-        }
-
-        // Start is called before the first frame update
-        void Start()
-        {
-            messageHistory = new List<PhoneMessage>();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
         }
     }
 }

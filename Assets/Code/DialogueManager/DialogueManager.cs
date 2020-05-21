@@ -9,10 +9,10 @@ namespace Paratoxic.DialogueManager
 {
     public abstract class DialogueManager : MonoBehaviour
     {
-        public static StreamReader script;
+        public static StreamReader scriptReader;
         private TextCommands textCommands;
 
-        protected static List<long> numOfBytesToOffsetToSpecificLine = new List<long>() { 0 };
+        protected static List<string> loadedScript = new List<string> ();
         protected int CurrentLineNumber { get; set; } = 0;
         public bool IsDelaying { get; protected set; }
         protected float secondsOfDelayLeft = 0f;
@@ -22,7 +22,7 @@ namespace Paratoxic.DialogueManager
         protected float SecondsBetweenAutoAdvancedMessages { get { return secondsBetweenAutoAdvancedMessages; } set { secondsBetweenAutoAdvancedMessages = value; } }
 
         // Start is called before the first frame update
-        void Start()
+        protected void Start()
         {
             textCommands = GameObject.Find("Overlord").GetComponent<TextCommands>();
         }
@@ -35,29 +35,16 @@ namespace Paratoxic.DialogueManager
 
         public static void LoadScript(string fileName)
         {
-            script = new StreamReader($"StoryScripts\\{fileName}.txt");
+            scriptReader = new StreamReader($"StoryScripts\\{fileName}.txt");
             string line;
-            int lineNumber = 0;
             do
             {
-                line = script.ReadLine().Replace("\\n", "\n");
-                AddByteCountToList(line, lineNumber);
-                lineNumber++;
+                line = scriptReader.ReadLine().Replace("\\n", "\n");
+                loadedScript.Add(line);
                 
-            } while (script.Peek() >= 0);
-            script.BaseStream.Position = 0;
-        }
+            } while (scriptReader.Peek() >= 0);
+            scriptReader.Close();
 
-        private static void AddByteCountToList(string line, int lineCount)
-        {
-            if (lineCount == 0)
-            {
-                numOfBytesToOffsetToSpecificLine.Add(System.Text.Encoding.Unicode.GetByteCount(line));
-            }
-            else
-            {
-                numOfBytesToOffsetToSpecificLine.Add(numOfBytesToOffsetToSpecificLine[lineCount - 1] + System.Text.Encoding.Unicode.GetByteCount(line));
-            }
         }
 
         public void LoadNextLine(bool displayQuickly = false)
@@ -74,9 +61,8 @@ namespace Paratoxic.DialogueManager
 
         private void LoadLine(bool displayQuickly = false)
         {
-            script.BaseStream.Position = numOfBytesToOffsetToSpecificLine[CurrentLineNumber];
             Debug.Log($"Reading line number {CurrentLineNumber}");
-            string line = script.ReadLine();
+            string line = loadedScript[CurrentLineNumber];
             if(displayQuickly)
             {
                 DisplayEntireLineAtOnce(line);

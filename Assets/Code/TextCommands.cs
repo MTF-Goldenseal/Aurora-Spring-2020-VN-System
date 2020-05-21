@@ -187,6 +187,6 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 			count++;
 		}
 		eventQueueParamList.Clear();
-		gameManager.PlayerInControl = false;
+		gameManager.PlayerInControl = true;
 	}
 }
