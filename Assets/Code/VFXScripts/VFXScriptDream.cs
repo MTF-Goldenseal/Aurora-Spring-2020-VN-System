@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class VFXScriptDream : VFXScript {
     // Start is called before the first frame update
-    private AudioSource audioPlayer;
 
-    protected override void Start()
-    {
-        base.Start();
-        audioPlayer = this.GetComponent<AudioSource>();
-    }
     public void DispProb(float level) {
         this.GetComponent<SpriteRenderer>().material.SetFloat("_DispProbability", level);
     }
@@ -27,13 +21,5 @@ public class VFXScriptDream : VFXScript {
     // animation event called at the end of the Dream Sequence animation during fade
     public void ControlModeToPhone() {
         eventManager.ControlMode(1);
-    }
-
-    public void PlaySound() {
-        if (audioPlayer.isPlaying == false)
-            audioPlayer.Play();
-    }
-    public void StopSound() {
-        audioPlayer.Stop();
     }
 }

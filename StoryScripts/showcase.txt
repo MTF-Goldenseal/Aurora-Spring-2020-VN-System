@@ -87,7 +87,7 @@ I knew what I had to do.
 ...and I decided to start from the top.
 [StopMusic]If I just <color=red>carved it out</color>...I'd be able to breathe again, right?
 [TalkSpeed f=0.08]<i>I just wanted to breathe</i>[TalkSpeed f=0.04]
-[RemoveVFX i=2][SpawnVFX s=MouseButtonPrompt][EnableQTE s=QTEThroat]I just wanted to breathe
+[RemoveVFX i=2][SpawnVFX s=MouseButtonPrompt][EnableQTE s=QTEThroat] 
 [BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][BlockInputWhilePrinting b=false]uhh
 hhhhhhhhhhhhhhh
 [SetVFX i=0 i=0][PlayMusic s=DownbeatPianoBeat]i don't remember what happened after that
@@ -160,3 +160,4 @@ eta on getting here?
 [MessageSender i=1]I'd say give it like twenty minutes, traffic lightened up. I'll catch up with you later bro
 [MessageSender i=0][SetVFX i=0 i=1]aight
 [SetVFX i=0 i=3]cya soon
+[ControlMode i=2][SetVFX i=0 i=10][StopMusic]
