@@ -55,7 +55,8 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 		controlMode = initialControlMode;
 
 		Resources.LoadAsync(""); //Literally just loads every asset on boot. Probably not the best way to go about it, but sucks for now
-    }
+		InputSelect(1);
+	}
 
     // Update is called once per frame
     void Update()
