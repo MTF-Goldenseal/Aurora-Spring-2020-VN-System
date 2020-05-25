@@ -1,4 +1,4 @@
-[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=5][PlayMusic s=ShowcaseSceneMusic][BringUpDialogue b=false]jules
+[SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=5][PlayMusic s=Paratoxic_Lofi][BringUpDialogue b=false]jules
 julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
@@ -88,9 +88,10 @@ I knew what I had to do.
 [StopMusic]If I just <color=red>carved it out</color>...I'd be able to breathe again, right?
 [TalkSpeed f=0.08]<i>I just wanted to breathe</i>[TalkSpeed f=0.04]
 [RemoveVFX i=2][SpawnVFX s=MouseButtonPrompt][EnableQTE s=QTEThroat] 
-[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][BlockInputWhilePrinting b=false]uhh
+[BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][BlockInputWhilePrinting b=false] 
+uhh
 hhhhhhhhhhhhhhh
-[SetVFX i=0 i=0][PlayMusic s=DownbeatPianoBeat]i don't remember what happened after that
+[SetVFX i=0 i=0][PlayMusic s=Paratoxic_Somber]i don't remember what happened after that
 [MessageSender i=1]Good god, what the hell dude
 [MessageSender i=0][SetVFX i=0 i=6]huh?
 [MessageSender i=1]We were just out getting food, why did you have to add so much visceral detail?
@@ -128,7 +129,7 @@ and all of a sudden it's not so bad
 sorry if this is kinda weird
 [SetVFX i=0 i=1][SetVFX i=0 i=1]dreams are some weird shit and this one tried to kill me apparently
 [MessageSender i=1]Yeah, I've never heard of anything like this before
-[MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=UpbeatPianoBeat]i think i'm feeling a little better now though
+[MessageSender i=0][SetVFX i=0 i=0][PlayMusic s=Paratoxic_Lofi]i think i'm feeling a little better now though
 so
 [MessageSender i=1]Glad to hear it
 The bus is running kinda late right now, I'd say give us maybe half an hour to get back
