@@ -1,5 +1,5 @@
 [SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=5][PlayMusic s=Paratoxic_Lofi][BringUpDialogue b=false]jules
-[Branch i=162]julesjulesjulesjules
+julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
 [MessageSender i=1]Yo sorry, I didnt notice my phone light up earlier today. What's going on bro?

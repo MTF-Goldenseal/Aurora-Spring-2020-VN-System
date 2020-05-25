@@ -1814,8 +1814,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.625
-    functionName: PhoneDown
+  - time: 0.083333336
+    functionName: DisablePhone
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
@@ -1831,13 +1831,6 @@ AnimationClip:
   - time: 2.0833333
     functionName: PlaySoundOnce
     data: MorganSittingBack
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3
-    functionName: DisablePhone
-    data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
@@ -1922,6 +1915,13 @@ AnimationClip:
   - time: 24.5
     functionName: PlaySoundOnce
     data: MorganTyping
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 24.583334
+    functionName: PlayMelody
+    data: Paratoxic_EndPianoMelody
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
