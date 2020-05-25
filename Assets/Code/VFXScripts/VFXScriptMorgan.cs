@@ -39,6 +39,10 @@ public class VFXScriptMorgan : VFXScript
         this.GetComponent<SpriteRenderer>().sortingLayerName = "DialogueVFX";
     }
 
+    public void PlayMelody(string song) {
+        eventManager.SFX(song);
+    }
+
     public void EndGame() {
         eventManager.ForceQuit();
     }

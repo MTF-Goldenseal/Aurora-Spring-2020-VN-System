@@ -1,5 +1,5 @@
 [SpawnVFX s=ShowcaseMorgan][SpawnVFX s=ShowcaseContentWarning][MessageSender i=0][SetVFX i=0 i=5][PlayMusic s=Paratoxic_Lofi][BringUpDialogue b=false]jules
-julesjulesjulesjules
+[Branch i=162]julesjulesjulesjules
 juuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuules
 @OrangeJules-ce
 [MessageSender i=1]Yo sorry, I didnt notice my phone light up earlier today. What's going on bro?
@@ -86,7 +86,7 @@ I knew what I had to do.
 [SetVFX i=1 i=7]It felt like I was on the verge of collapsing as I lifted the dead weight of my arm up, <color=#773FEB>scalpel</color> in hand...
 ...and I decided to start from the top.
 [StopMusic]If I just <color=red>carved it out</color>...I'd be able to breathe again, right?
-[TalkSpeed f=0.08]<i>I just wanted to breathe</i>[TalkSpeed f=0.04]
+[TalkSpeed f=0.08]<i>I just wanted to breathe</i>[TalkSpeed f=0.04][Voice s=Silence]
 [RemoveVFX i=2][SpawnVFX s=MouseButtonPrompt][EnableQTE s=QTEThroat] 
 [BringUpDialogue b=false][MessageSender i=0][SetVFX i=0 i=1][BlockInputWhilePrinting b=false] 
 uhh
