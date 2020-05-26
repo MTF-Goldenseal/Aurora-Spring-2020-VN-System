@@ -3178,10 +3178,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBetweenAutoAdvancedMessages: 1
-  charSoundBite: {fileID: 0}
+  isPlayingDialogue: 0
+  isBlockingInput: 0
+  charSoundBite: {fileID: 2037767919}
   dialogueBox: {fileID: 544175030}
   dialogueTextObject: {fileID: 1990445902}
-  isPlayingDialogue: 0
   delayBetweenEachLetter: 0.04
 --- !u!4 &2037767917
 Transform:
@@ -3346,7 +3347,6 @@ MonoBehaviour:
   previousControlMode: 0
   initialControlMode: 1
   playerInChoice: 0
-  playingDialogue: 0
   speaker: 
 --- !u!114 &2037767922
 MonoBehaviour:
@@ -3570,6 +3570,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBetweenAutoAdvancedMessages: 1
+  isPlayingDialogue: 0
+  isBlockingInput: 0
   defaultMessageDistance: 0.4
   phoneTextBoxPrefab: {fileID: 2372033610815660828, guid: 3c7ecf8fe4a03e141a4988d6802993cb,
     type: 3}

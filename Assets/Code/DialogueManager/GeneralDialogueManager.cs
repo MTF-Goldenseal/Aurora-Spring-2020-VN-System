@@ -14,9 +14,6 @@ namespace Paratoxic.DialogueManager
         [SerializeField]
         private GameObject dialogueTextObject;
         [SerializeField]
-        private bool isPlayingDialogue;
-        public bool IsPlayingDialogue { get => isPlayingDialogue; private set => isPlayingDialogue = value; }
-        [SerializeField]
         private float delayBetweenEachLetter = 0.04f;
         public float DelayBetweenEachLetter { get => delayBetweenEachLetter; set => delayBetweenEachLetter = value; }
 
@@ -25,7 +22,7 @@ namespace Paratoxic.DialogueManager
         private Coroutine WrittingTextOut;
 
         // Start is called before the first frame update
-        void Start()
+        new void Start()
         {
             dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
             dialogueText.text = "";
@@ -51,7 +48,7 @@ namespace Paratoxic.DialogueManager
                 if (IsItABracket(line[i]))
                 {
                     //Warning: It's possible that altering the string like this mid-loop will cause "Out of bounds" funkiness because the length is variable. Keep an eye out for that.
-                    line = ProcessSingleBracket(line);
+                    ProcessSingleBracket(line, ref i);
                 }
                 if (IsDelaying)
                 {
@@ -70,17 +67,18 @@ namespace Paratoxic.DialogueManager
 
         private IEnumerator WriteTextOut(string line)
         {
-            isPlayingDialogue = true;
+            IsPlayingDialogue = true;
             dialogueBox.SetTalking(true);
+            dialogueText.text = "";
 
-            string parsedLine = ProcessInitialBrackets(line);
+            string lineWithInitialParsing = ProcessInitialBrackets(line);
 
-            for (int i = 0; i < parsedLine.Length; i++)
+            for (int i = 0; i < lineWithInitialParsing.Length; i++)
             {
-                if (IsItABracket(parsedLine[i]))
+                if (IsItABracket(lineWithInitialParsing[i]))
                 {
                     //Warning: It's possible that altering the string like this mid-loop will cause "Out of bounds" funkiness because the length is variable. Keep an eye out for that.
-                    parsedLine = ProcessSingleBracket(parsedLine);
+                    ProcessSingleBracket(lineWithInitialParsing, ref i);
                 }
                 if(IsDelaying)
                 {
@@ -89,8 +87,8 @@ namespace Paratoxic.DialogueManager
                     secondsOfDelayLeft = 0f;
                 }
                 //Warning: It's possible that writing <tags> character by character won't trigger the intended effects. Keep an eye out for that.
-                PlayCharSoundBite(parsedLine[i]);
-                dialogueText.text += parsedLine[i];
+                PlayCharSoundBite(lineWithInitialParsing[i]);
+                dialogueText.text += lineWithInitialParsing[i];
                 yield return new WaitForSeconds(delayBetweenEachLetter);
             }
 

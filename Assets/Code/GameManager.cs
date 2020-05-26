@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public bool PlayerInControl { get; set; } = true;
     [HideInInspector]
 	public bool playerInChoice = false;
-	[HideInInspector]
-	public bool playingDialogue = false;
 	public string speaker;
 
     public Queue eventQueue = new Queue();
@@ -86,7 +84,7 @@ public class GameManager : MonoBehaviour //Manages general game logic, communica
 	public void InputSelect(int mode) {
 		switch (mode) {
 			case 0: //Normal Dialogue
-				if (playingDialogue == false) {
+				if (generalDialogueManager.IsPlayingDialogue == false) {
 					generalDialogueManager.LoadNextLine();
 				} else { //Same functionality as left control/right click while dialogue is playing.
 					generalDialogueManager.LoadNextLine(displayQuickly: true);

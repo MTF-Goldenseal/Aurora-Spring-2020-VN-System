@@ -13,13 +13,23 @@ namespace Paratoxic.DialogueManager
         private TextCommands textCommands;
 
         protected static List<string> loadedScript = new List<string> ();
-        protected int CurrentLineNumber { get; set; } = 0;
+        protected static int CurrentLineNumber { get; set; } = 0;
+
         public bool IsDelaying { get; protected set; }
         protected float secondsOfDelayLeft = 0f;
         protected bool IsAudoAdvancing { get; set; } = false;
+
         [SerializeField]
         private float secondsBetweenAutoAdvancedMessages;
         protected float SecondsBetweenAutoAdvancedMessages { get { return secondsBetweenAutoAdvancedMessages; } set { secondsBetweenAutoAdvancedMessages = value; } }
+
+        [SerializeField]
+        private bool isPlayingDialogue;
+        public bool IsPlayingDialogue { get => isPlayingDialogue; protected set => isPlayingDialogue = value; }
+
+        [SerializeField]
+        private bool isBlockingInput;
+        public bool IsBlockingInput { get => isBlockingInput; set => isBlockingInput = value; }
 
         // Start is called before the first frame update
         protected void Start()
@@ -49,20 +59,26 @@ namespace Paratoxic.DialogueManager
 
         public void LoadNextLine(bool displayQuickly = false)
         {
-            LoadLine(displayQuickly);
-            CurrentLineNumber++;
+            if(!isBlockingInput && CurrentLineNumber < loadedScript.Count)
+            {
+                LoadLine(displayQuickly);
+                CurrentLineNumber++;
+            }
         }
 
         public void JumpToLine(int lineNumber, bool displayQuickly = false)
         {
-            CurrentLineNumber = lineNumber;
-            LoadLine(displayQuickly);
+            if(lineNumber < loadedScript.Count)
+            {
+                CurrentLineNumber = lineNumber;
+                LoadLine(displayQuickly);
+            }
         }
 
         private void LoadLine(bool displayQuickly = false)
         {
-            Debug.Log($"Reading line number {CurrentLineNumber}");
             string line = loadedScript[CurrentLineNumber];
+            Debug.Log($"{line}");
             if(displayQuickly)
             {
                 DisplayEntireLineAtOnce(line);
@@ -92,14 +108,13 @@ namespace Paratoxic.DialogueManager
             return line.Substring(capturedBrackets.Length);
         }
 
-        protected string ProcessSingleBracket(string lineToProcess)
+        protected void ProcessSingleBracket(string lineToProcess, ref int currentIndexInLine)
         {
             string bracketSeparationPattern = @"\[.*?\]";
             Match match = Regex.Match(lineToProcess, bracketSeparationPattern);
             string bracket = match.Value;
+            currentIndexInLine += bracket.Length;
             textCommands.ProcessEvent(bracket.Substring(1, bracket.Length - 2), isStartOfLine: false);
-
-            return lineToProcess.Remove(match.Index, bracket.Length);
         }
 
         public void DelayTextForSeconds(float secondsToDelay)

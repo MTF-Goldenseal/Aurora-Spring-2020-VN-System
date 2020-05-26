@@ -14,7 +14,6 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 	public static DialogueManager dialogueManager;
 	public static EventManager eventManager;
 	public AudioClip[] voiceClips = new AudioClip[4];
-	private Paratoxic.DialogueManager.DialogueManager newDialogueManager; //Will replace the original DialogueManager with this at some point, but it's here for now to get rid of the errors and mark what I've "converted"
 
 	private Queue eventQueue = new Queue();
 	private List<object[]> eventQueueParamList = new List<object[]>();
@@ -74,11 +73,11 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 			eventQueueParamList.Add(invokerParams);
 		} else { //if this event is being processed in the middle of the line, call it immediately from eventManager
 			try {
-				Debug.Log("Condition eventName == Delay is "+(eventName=="Delay")+", Condition gameManager.playingDialogue== false is "+(gameManager.playingDialogue==false));
+				//Debug.Log("Condition eventName == Delay is "+(eventName=="Delay")+", Condition gameManager.playingDialogue== false is "+(newDialogueManager.IsPlayingDialogue==false));
 			} catch (Exception e) {
 				Debug.Log(e);
 			}
-			if (eventName == "Delay" && gameManager.playingDialogue == true) { //if the event is a delay and dialogue is running, delay.
+			if (eventName == "Delay" && dialogueManager.IsPlayingDialogue == true) { //if the event is a delay and dialogue is running, delay.
 				dialogueManager.DelayTextForSeconds((float)invokerParams[0]);
 			} else { //else, call the given event immediately.
 				Type type = typeof(EventManager);
@@ -177,7 +176,7 @@ public class TextCommands : MonoBehaviour //Processes commands and passes them b
 		{
 			if (eventQueue.Peek().ToString().Equals("Delay"))
 			{
-				newDialogueManager.DelayTextForSeconds((float)eventQueueParamList[count][0]);
+				dialogueManager.DelayTextForSeconds((float)eventQueueParamList[count][0]);
 				yield return new WaitForSeconds((float)eventQueueParamList[count][0]);
 			}
 			else
