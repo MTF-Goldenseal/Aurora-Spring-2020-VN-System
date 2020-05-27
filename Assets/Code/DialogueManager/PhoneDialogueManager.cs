@@ -6,6 +6,7 @@ namespace Paratoxic.DialogueManager
 {
     public class PhoneDialogueManager : DialogueManager
     {
+        //SEB: Whenever you have lists of possibilities that you need to reference using numbers, always go for enumerators because they are always clearer in intent than knowing that 3 refers to the ID of Gazorpazorp or leaving comments in the switches right next to the numbers to say what they mean. Enumerators resolve that problem. It's only two options here, but you can used this for identifying people if you plan on having group chats, for instance. Here's an excerpt of bigger ones with custom ordering taken from one of my projects https://i.imgur.com/9DvDhGs.png
         public enum SenderTypes
         {
             MAIN,

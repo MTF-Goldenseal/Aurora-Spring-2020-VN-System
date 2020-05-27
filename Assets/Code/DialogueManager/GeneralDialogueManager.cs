@@ -26,6 +26,7 @@ namespace Paratoxic.DialogueManager
         {
             dialogueText = dialogueTextObject.GetComponent<TextMeshPro>();
             dialogueText.text = "";
+            //Since this is a class that inherits from another one, it's best that you always call the start function on the base one, as you may want to initialise things that should only be referenced in the base class. Were this something other than Unity, you'd just call the constructor instead.
             base.Start();
         }
 
@@ -47,7 +48,6 @@ namespace Paratoxic.DialogueManager
             {
                 if (IsItABracket(line[i]))
                 {
-                    //Warning: It's possible that altering the string like this mid-loop will cause "Out of bounds" funkiness because the length is variable. Keep an eye out for that.
                     ProcessSingleBracket(line, ref i);
                 }
                 if (IsDelaying)
@@ -77,7 +77,6 @@ namespace Paratoxic.DialogueManager
             {
                 if (IsItABracket(lineWithInitialParsing[i]))
                 {
-                    //Warning: It's possible that altering the string like this mid-loop will cause "Out of bounds" funkiness because the length is variable. Keep an eye out for that.
                     ProcessSingleBracket(lineWithInitialParsing, ref i);
                 }
                 if(IsDelaying)
@@ -101,6 +100,10 @@ namespace Paratoxic.DialogueManager
             return character == '[';
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="character">This assumes the character 'a' in the event that it only needs to be played once, outside of a loop where you'd have access to the characters</param>
         void PlayCharSoundBite(char character = 'a')
         {
             if (specialChars.Contains(character))
