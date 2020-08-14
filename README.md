@@ -1,6 +1,9 @@
 # Project - Paratoxic
 -------
-A Unity project with support for dialogue/visual novels. Supports reading commands and text from a text file.
+A ten minute animated visual novel demo. Supports reading text off of a text file and into dialogue bubbles, and running commands within a text file to manipulate the playing field (moving characters, playing visual effects and sound effects, applyng camera shake, etc.).
+
+Chen - Base Visual Novel Engine
+Maren McLean, SJCRPV - Phone Dialogue system, most of the demo specific features
 
 Notes:
 
